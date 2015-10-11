@@ -1,5 +1,5 @@
 deploy_user: deployer
 gh_pubkey_user: seanriordan08
 webserver_name: kpraccountancy.com
-mysql_root_password: rootabega
+mysql_root_password: root
 mysql_db_password: root

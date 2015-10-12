@@ -4,15 +4,24 @@
 
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.main-wrapper {
+//  padding-top: 55px;
+}
 .top-bar-container {
   position:fixed;
   top:0;
   left:0;
   width: 100%;
   box-shadow: 0 1px 10px #333;
-  z-index:1000;
+  z-index: 2000;
 }
-
 .top-bar {
   padding-top: 10px;
   height: 50px;
@@ -21,11 +30,31 @@
   color: #333;
   font-family: 'Raleway', sans-serif;
   font-size: 32px;
-  z-index:1001;
+  z-index: 1001;
 }
-
 .content {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+}
+.service-wrapper {
+}
+.service {
+  position: relative;
+  display: inline-block;
+  text-align: justify;
+  top: -400px;
+  height: 200px;
+  width: 200px;
+  background-color: #c3c7cb;
+  opacity: 0.9;
+  @include border-radius(100px);
+  z-index: 1002;
+}
+.movers-row {
+  margin: -200px 0 0 200px;
+}
+.movers-row div .service{
+  width: 33.3%;
+  float: left;
 }

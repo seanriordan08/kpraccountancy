@@ -11,9 +11,16 @@
   border-radius: $radius;
 }
 
+$kpr-white: #F8FFFC;
+$kpr-ltgreen: #CCFCCB;
+$kpr-green: #96E6B3;
+$kpr-yellow: #E7E247;
+$kpr-black: #383838;
+
 body {
   margin: 0;
   padding: 0;
+  background-color: $kpr-white;
 }
 
 .top-bar-container {
@@ -66,7 +73,8 @@ body {
   .hero {
     width: 100%;
     height: 400px;
-    background-color: #DDD;
+    background: $kpr-black url(/assets/flatirons.png) no-repeat 0 0 fixed;
+    background-size: cover;
   }
 
   .content {

@@ -1,0 +1,130 @@
+/* line 1, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.homepage-hero-module {
+  border-right: none;
+  border-left: none;
+  position: relative;
+  max-height: 816px;
+}
+
+/* line 7, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.no-video .video-container video,
+.touch .video-container video {
+  display: none;
+}
+
+/* line 11, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.no-video .video-container .poster,
+.touch .video-container .poster {
+  display: block !important;
+}
+
+/* line 15, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.video-container {
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+/* line 24, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.video-container .poster img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+/* line 29, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.video-container .filter {
+  z-index: 100;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+/* line 35, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.video-container video {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+}
+
+/* line 40, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/coverr.scss */
+.video-container video.fillWidth {
+  width: 100%;
+}
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+/* line 17, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.scss */
+.top-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 1px 10px #333;
+  z-index: 2000;
+}
+
+/* line 25, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.scss */
+.top-bar {
+  padding-top: 10px;
+  height: 50px;
+  text-align: center;
+  background-color: #f8f8f8;
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  z-index: 1001;
+}
+
+/* line 35, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.scss */
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+/* line 42, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.scss */
+.service {
+  position: relative;
+  display: inline-block;
+  text-align: justify;
+  top: -400px;
+  height: 200px;
+  width: 200px;
+  background-color: #c3c7cb;
+  opacity: 0.9;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  border-radius: 100px;
+  z-index: 1002;
+}
+
+/* line 54, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.scss */
+.movers-row {
+  margin: -200px 0 0 200px;
+}
+
+/* line 57, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.scss */
+.movers-row div .service {
+  width: 33.3%;
+  float: left;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

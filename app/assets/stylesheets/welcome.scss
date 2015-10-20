@@ -23,6 +23,12 @@
   height: 10px;
 }
 
+@mixin full-section {
+  width: 100%;
+  height: 300px;
+  clear: both;
+}
+
 $kpr-white: #F8FFFC;
 $kpr-ltgreen: #CCFCCB;
 $kpr-green: #96E6B3;
@@ -100,15 +106,15 @@ body {
   .color-block {
     clear: both;
 
-    .ltgreen {
+    .ltgreen-block {
       @include color-block;
       background-color: $kpr-ltgreen;
     }
-    .green {
+    .green-block {
       @include color-block;
       background-color: $kpr-green;
     }
-    .yellow {
+    .yellow-block {
       @include color-block;
       background-color: $kpr-yellow;
     }
@@ -125,10 +131,21 @@ body {
     width: 20%;
   }
 
-  .services {
-    width: 100%;
-    height: 300px;
-    clear: both;
-    background-color: $kpr-ltgreen;
+  .full-section {
+    .services {
+      @include full-section;
+      background-color: #DDD;
+    }
+    .mission {
+      @include full-section;
+      background-color: #EEE;
+    }
+    .footer {
+      width: 100%;
+      height: 100px;
+      clear: both;
+      color: $kpr-white;
+      background-color: $kpr-black;
+    }
   }
 }

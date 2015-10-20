@@ -85,8 +85,32 @@ body {
   .hero {
     width: 100%;
     height: 400px;
-    background: $kpr-black url("/assets/flatirons.png") no-repeat top left fixed;
+//    background: $kpr-black url("/assets/flatirons.png") no-repeat top left fixed;
+    background: $kpr-black url("/assets/video_fail_backups/Nature-Sunset.jpg") no-repeat top left fixed;
     background-size: cover;
+  }
+
+  .color-block {
+    clear: both;
+
+    .ltgreen {
+      float:left;
+      width: 20%;
+      height: 80px;
+      background-color: $kpr-ltgreen;
+    }
+    .green {
+      float:left;
+      width: 20%;
+      height: 80px;
+      background-color: $kpr-green;
+    }
+    .yellow {
+      float:left;
+      width: 20%;
+      height: 80px;
+      background-color: $kpr-yellow;
+    }
   }
 
   .content {

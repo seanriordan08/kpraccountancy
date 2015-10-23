@@ -6,12 +6,30 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
 	<div class="container">
+		<%= render partial: "welcome/nav_bar.html.erb" %>
+		<%= render partial: "welcome/breadcrumbs.html.erb" %>
+
 		<%= yield %>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="navbar navbar-default">
+					<p class="navbar-text pull-left">© 2015 - Site Built By KPR Development Services
+						<a href="#" target="_blank" >HTML 5 Validation</a>
+					</p>
+
+					<a href="#" class="btn btn-danger navbar-btn pull-right" style="margin-right: 20px">
+						<span class="glyphicon glyphicon-star"></span>Subscribe to Newsfeed
+					</a>
+				</div>
+			</div>
+		</div>
 
 	</div>
 
 </body>
+
 </html>

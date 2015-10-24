@@ -120,8 +120,8 @@
             var self = this;
             // Insert cursor
             if (this.showCursor === true) {
-                //this.cursor = $("<span class=\"typed-cursor\">" + this.cursorChar + "</span>"); //Span doesn't play nice with bootstrap3
-                this.cursor = $("<h1 class=\"typed-cursor\">" + this.cursorChar + "</h1>");
+                //this.cursor = $("<span class=\"typed-cursor\">" + this.cursorChar + "</span>"); //Because Bootstap3 doesn't like <span> inline elements
+                this.cursor = $("<h1 class=\"typed-cursor inline\">" + this.cursorChar + "</h1>");
                 this.el.after(this.cursor);
             }
             if (this.stringsElement) {
@@ -269,13 +269,15 @@
                 // on the first string, only delete one word
                 // the stopNum actually represents the amount of chars to
                 // keep in the current string. In my case it's 14.
-                // if (self.arrayPos == 1){
-                //  self.stopNum = 14;
-                // }
+                if (self.arrayPos == 0){
+                  self.stopNum = 36;
+                } else if (self.arrayPos == 1) {
+                  self.stopNum = 35;
+                }
                 //every other time, delete the whole typed string
-                // else{
-                //  self.stopNum = 0;
-                // }
+                else{
+                  self.stopNum = 0;
+                }
 
                 if (self.contentType === 'html') {
                     // skip over html tags while backspacing

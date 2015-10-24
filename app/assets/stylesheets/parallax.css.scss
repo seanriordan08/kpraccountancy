@@ -1,0 +1,31 @@
+.divider {
+  height:50px;
+}
+
+.full-size {
+  height: 500px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow: auto;
+}
+
+.mid-size {
+  height: 300px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow: auto;
+}
+
+.bg-1 {
+  margin: 0 0 20px 0;
+  background: url('/assets/notes.jpg') no-repeat center center fixed;
+  color: #333;
+  background-size:cover;
+}
+
+.bg-2 {
+  background: url('/assets/skyline_crop.jpg') no-repeat top center fixed;
+  color:#fff;
+  background-size:cover;
+}
+

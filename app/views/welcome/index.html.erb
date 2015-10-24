@@ -1,14 +1,8 @@
-<section class="bg-1 text-center">
+<section class="bg-1 text-center mid-size">
 	<h1>What can we do for you?</h1>
-	<p class="lead">Add Some Motion</p>
+	<p>Add Some Motion</p>
 	<p><a class="btn btn-primary btn-lg" href="#" role="button">Let's Chat</a></p>
 </section>
-
-<!--<div class="jumbotron">-->
-	<!--<h1>KPR Accountancy</h1>-->
-	<!--<p>...</p>-->
-	<!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
-<!--</div>-->
 
 <div class="row">
 	<div class="col-md-4">
@@ -60,14 +54,6 @@
 	</div>
 </div>
 
-<section class="bg-2">
-	<div class="col-sm-10 col-sm-offset-1 text-center">
-		<h1>Keep Going</h1>
-		<h1>Keep Going</h1>
-		<h1>Keep Going</h1>
-	</div>
-</section>
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="jumbotron">
@@ -79,51 +65,11 @@
 	</div>
 </div>
 
-<script>
-	(function($) {
+<section class="bg-2 full-size">
+	<div class="col-sm-10 col-sm-offset-1 text-center">
+		<h1>Keep Going</h1>
+		<h1>Keep Going</h1>
+		<h1>Keep Going</h1>
+	</div>
+</section>
 
-		$.fn.parallax = function(options) {
-
-			var windowHeight = $(window).height();
-
-			// Establish default settings
-			var settings = $.extend({
-				speed        : 0.15
-			}, options);
-
-			// Iterate over each object in collection
-			return this.each( function() {
-
-				// Save a reference to the element
-				var $this = $(this);
-
-				// Set up Scroll Handler
-				$(document).scroll(function(){
-
-					var scrollTop = $(window).scrollTop();
-					var offset = $this.offset().top;
-					var height = $this.outerHeight();
-
-					// Check if above or below viewport
-					if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
-						return;
-					}
-
-					var yBgPosition = Math.round((offset - scrollTop) * settings.speed);
-
-					// Apply the Y Background Position to Set the Parallax Effect
-					$this.css('background-position', 'center ' + yBgPosition + 'px');
-
-				});
-			});
-		}
-	}(jQuery));
-
-	$('.bg-1,.bg-3').parallax({
-		speed :	0.15
-	});
-
-	$('.bg-2').parallax({
-		speed :	0.25
-	});
-</script>

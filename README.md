@@ -1,28 +1,33 @@
-== README
+### ssh into your vps with emailed credentials
+ssh root@your_ip_address
+pw: provided_in_email
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### setup deployer
+useradd deployer
+passwd deployer
+deploy
+deploy
 
-Things you may want to cover:
+### setup ssh keys by copying local public key onto remote .ssh/authorized_keys file
+remote: in roo/.ssh, `vim authorized_keys`
+local: copy id_rsa.pub (public key)
+remote: paste key into authorized_keys
+logout of remote
+log back into root - you should not be prompted for a password
 
-* Ruby version
+### create local db
+local: bin/rake db:create
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### if using basic ansible provisioner
+-modify `telemark-ops/ansible/production`
+-modify `telemark-ops/ansible/group_vars/production`
+-modify `telemark-ops/ansible/group_vars/all`
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Provisioning
+
+To provision a new server: cd ansible && `ansible-playbook -i production provision.yml`
+
+##Deploying
+
+To deploy the app: cd ansible && `ansible-playbook -i production deploy.yml`

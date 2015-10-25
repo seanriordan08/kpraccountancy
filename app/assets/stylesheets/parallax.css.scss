@@ -18,14 +18,14 @@
 
 .bg-1 {
   margin: 0 0 20px 0;
-  background: url('/assets/notes_crop.jpg') no-repeat center center fixed;
+  background: asset-data-url("notes_crop.jpg") no-repeat center center fixed;
   color: #333;
   background-size:cover;
 }
 
 .bg-2 {
   margin: 0 0 20px 0;
-  background: url('/assets/skyline_crop.jpg') no-repeat top center fixed;
+  background: asset-data-url("skyline_crop.jpg") no-repeat top center fixed;
   color:#fff;
   background-size:cover;
 }

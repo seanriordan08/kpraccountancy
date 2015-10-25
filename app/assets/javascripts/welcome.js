@@ -1,29 +1,26 @@
 
 $(document).ready(function(){
 
-  $(".navbar-brand").on("click", function(){
-    show_welcome_home();
+  $(".navbar-brand.home").on("click", function(){
+    var selection = $('.view-port .home');
+    show_nav_link(selection);
   });
 
   $(".navbar-nav a.about").on("click", function(){
-    show_welcome_about();
+    var selection = $('.view-port .about');
+    show_nav_link(selection);
   });
 
-  function show_welcome_home(){
-    $('.view-port, .footer').fadeOut(250, function(){
-      setTimeout(function(){
-        $('.view-port .home').css("display", "block");
-        $('.view-port .about').css("display", "none");
-        $('.view-port, .footer').fadeIn(200);
-      }, 200);
-    });
-  }
+  $(".navbar-nav a.news").on("click", function(){
+    var selection = $('.view-port .news');
+    show_nav_link(selection);
+  });
 
-  function show_welcome_about(){
+  function show_nav_link(selection){
     $('.view-port, .footer').fadeOut(250, function(){
       setTimeout(function(){
-        $('.view-port .about').css("display", "block");
-        $('.view-port .home').css("display", "none");
+        selection.css("display", "block");
+        selection.siblings().css("display", "none");
         $('.view-port, .footer').fadeIn(200);
       }, 200);
     });

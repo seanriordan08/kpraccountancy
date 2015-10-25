@@ -1,4 +1,15 @@
 
+$(document).ready(function(){
+
+  $(".navbar-nav a.about").click(function(){
+    $('.view-port').addClass("fade");
+    $('.home').css("display", "none");
+    $('.about').css("display", "block");
+    $('.view-port').addClass("fade in");
+  });
+
+});
+
 //Typed.js
 $(function(){
   $(".active-typing").typed({

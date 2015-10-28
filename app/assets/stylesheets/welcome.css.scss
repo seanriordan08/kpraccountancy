@@ -1,3 +1,17 @@
-body{
+body.bg-two-tone {
+  height: 100%;
+  background-color: #F8FFFC;
   overflow-x: hidden;
+}
+
+.panel-heading.yellow {
+  background-color: #E7E247;
+}
+
+.panel-heading.green {
+   background-color: #96E6B3;
+ }
+
+.panel-heading.ltgreen {
+  background-color: #CCFCCB;
 }

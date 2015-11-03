@@ -11,6 +11,16 @@ $(document).ready(function(){
     show_nav_link(selection);
   });
 
+  $(".navbar-nav a.pricing").on("click", function(){
+    var selection = $('.view-port .pricing');
+    show_nav_link(selection);
+  });
+
+  $(".navbar-nav a.services").on("click", function(){
+    var selection = $('.view-port .services');
+    show_nav_link(selection);
+  });
+
   $(".navbar-nav a.news").on("click", function(){
     var selection = $('.view-port .news');
     show_nav_link(selection);

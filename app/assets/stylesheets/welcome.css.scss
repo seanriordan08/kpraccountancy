@@ -21,7 +21,7 @@ time, mark, audio, video {
 }
 
 //Branding
-$kpr-white: #F8FFFC;
+$kpr-white: #d7dedb;
 $kpr-ltgreen: #CCFCCB;
 $kpr-green: #96E6B3;
 $kpr-yellow: #E7E247;
@@ -70,19 +70,21 @@ section.hero {
   width: 100%;
   min-height: 600px;
 
-  .call_to_action {
+  a {
     display: inline-block;
     width: 130px;
-    height: 40px;
+    height: 30px;
+    padding-top: 7px;
     border-radius: 4px;
+    color: $kpr-black;
     background-color: $kpr-white;
-    a {
-      display: inline-block;
-      margin: 8px 0;
-      color: $kpr-black;
-      text-decoration: none;
-      font-family: 'Roboto', sans-serif;
-      font-size: 20px;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    &:hover {
+      transition: 200ms;
+      color: $kpr-white;
+      background-color: $kpr-black;
     }
   }
 }

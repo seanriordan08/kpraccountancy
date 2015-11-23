@@ -1,3 +1,10 @@
+//Branding
+$kpr-white: #F8FFFC;
+$kpr-ltgreen: #CCFCCB;
+$kpr-green: #96E6B3;
+$kpr-yellow: #E7E247;
+$kpr-black: #383838;
+
 .typed-cursor{
   opacity: 1;
   -webkit-animation: blink 0.7s infinite;
@@ -22,9 +29,12 @@
 }
 
 //Because Bootstap3 doesn't like <span> inline elements
-h1.active-typing {
+.active-typing {
   display: inline;
   min-height: 100px;
+  color: $kpr-white;
+  font-family: sans-serif;
+  font-size: 18px;
 }
 
 .inline {

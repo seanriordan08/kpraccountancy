@@ -31,7 +31,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: #F8FFFC;
-//  overflow-x: hidden;
 }
 
 .float_left {
@@ -42,13 +41,38 @@ body {
   float: right;
 }
 
+.center {
+  text-align: center;
+}
+
 .header {
   width: 100%;
   height: 50px;
   position: fixed;
   top: 0;
   bottom: auto;
-  background-color: $kpr-yellow;
+  color: $kpr-white;
+  background-color: transparent;
+  img { padding-left: 10px; }
+  ul {
+    padding: 15px 10px;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    li {
+      display: inline;
+      padding: 0 10px;
+    }
+  }
+}
+
+section.hero {
+    width: 100%;
+    min-height: 600px;
+}
+
+.call-to-action {
+
 }
 
 .panel-heading.yellow {
@@ -56,7 +80,8 @@ body {
 }
 
 .panel-heading.green {
-   background-color: #96E6B3;
+
+  background-color: #96E6B3;
  }
 
 .panel-heading.ltgreen {
@@ -65,8 +90,4 @@ body {
 
 .container-fluid.ltgreen {
   background-color: #CCFCCB;
-}
-
-.center {
-  text-align: center;
 }

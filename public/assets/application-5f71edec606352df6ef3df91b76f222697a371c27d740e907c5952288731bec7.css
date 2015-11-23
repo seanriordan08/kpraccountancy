@@ -8818,6 +8818,12 @@ button.close {
   background-size: cover;
 }
 
+/* line 8, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/brand.css.scss */
+.profile-img {
+  border: 1px solid #383838;
+  border-radius: 4px;
+}
+
 /* line 1, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/typed.css.scss */
 .typed-cursor {
   opacity: 1;
@@ -8870,24 +8876,44 @@ h1.active-typing {
   display: inline;
 }
 
-/* line 1, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+/* line 8, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
 body.bg-two-tone {
   height: 100%;
   background-color: #F8FFFC;
   overflow-x: hidden;
 }
 
-/* line 7, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+/* line 14, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
 .panel-heading.yellow {
   background-color: #E7E247;
 }
 
-/* line 11, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+/* line 18, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
 .panel-heading.green {
   background-color: #96E6B3;
 }
 
-/* line 15, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+/* line 22, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
 .panel-heading.ltgreen {
   background-color: #CCFCCB;
+}
+
+/* line 26, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+.container-fluid.ltgreen {
+  background-color: #CCFCCB;
+}
+
+/* line 30, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+.panel-body::-moz-selection {
+  background: #E7E247;
+}
+
+/* line 31, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+.panel-body::selection {
+  background: #E7E247;
+}
+
+/* line 33, /Users/seanriordan08/Desktop/kpraccountancy/app/assets/stylesheets/welcome.css.scss */
+.center {
+  text-align: center;
 }

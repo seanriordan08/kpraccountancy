@@ -67,13 +67,26 @@ body {
 }
 
 section.hero {
-    width: 100%;
-    min-height: 600px;
+  width: 100%;
+  min-height: 600px;
+
+  .call_to_action {
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $kpr-white;
+    a {
+      display: inline-block;
+      margin: 8px 0;
+      color: $kpr-black;
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+  }
 }
 
-.call-to-action {
-
-}
 
 .panel-heading.yellow {
   background-color: #E7E247;

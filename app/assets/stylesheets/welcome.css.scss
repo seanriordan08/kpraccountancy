@@ -1,24 +1,34 @@
+//Brand Color Scheme
+$kpr-white: #F8FFFC;
+$kpr-ltgreen: #CCFCCB;
+$kpr-green: #96E6B3;
+$kpr-yellow: #E7E247;
+$kpr-black: #383838;
+
 body.bg-two-tone {
   height: 100%;
-  background-color: #F8FFFC;
+  background-color: $kpr-white;
   overflow-x: hidden;
 }
 
 .panel-heading.yellow {
-  background-color: #E7E247;
+  background-color: $kpr-yellow;
 }
 
 .panel-heading.green {
-   background-color: #96E6B3;
+   background-color: $kpr-green;
  }
 
 .panel-heading.ltgreen {
-  background-color: #CCFCCB;
+  background-color: $kpr-ltgreen;
 }
 
 .container-fluid.ltgreen {
-  background-color: #CCFCCB;
+  background-color: $kpr-ltgreen;
 }
+
+.panel-body::-moz-selection { background: $kpr-yellow }
+.panel-body::selection { background: $kpr-yellow }
 
 .center {
   text-align: center;

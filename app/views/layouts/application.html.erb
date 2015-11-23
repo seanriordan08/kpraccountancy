@@ -10,12 +10,8 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="bg-two-tone">
+<body>
 	<div class="container">
-
-		<!--<p class="notice"><%#= notice %></p>-->
-		<!--<p class="alert"><%#= alert %></p>-->
-
 		<%= render partial: "shared/nav_bar.html.erb" %>
 		<%= yield %>
 		<%= render partial: "shared/footer.html.erb" %>

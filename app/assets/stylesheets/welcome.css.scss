@@ -15,8 +15,6 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -52,7 +50,7 @@ body {
   top: 0;
   bottom: auto;
   color: $kpr-white;
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.3);
   img { padding-left: 10px; }
   ul {
     padding: 15px 10px;
@@ -73,8 +71,11 @@ section.hero {
   a {
     display: inline-block;
     width: 130px;
-    height: 30px;
-    padding-top: 7px;
+    height: 35px;
+    padding: 7px 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     border-radius: 4px;
     color: $kpr-black;
     background-color: $kpr-white;
@@ -82,13 +83,56 @@ section.hero {
     font-size: 20px;
     text-decoration: none;
     &:hover {
-      transition: 200ms;
+      transition: 150ms;
+      padding: 6px 0 8px 0;
+      border: 1px solid $kpr-white;
       color: $kpr-white;
-      background-color: $kpr-black;
+      background-color: transparent;
     }
   }
 }
 
+section.mission_statement {
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+  background-image: url('brickwall.png');
+  text-align: center;
+}
+
+section.news_feed {
+  width: 100%;
+  height: 500px;
+  padding: 20px 0;
+  background-image: url('darkdenim3.png');
+  color: $kpr-white;
+  text-align: center;
+}
+
+section.services {
+  width: 100%;
+  height: 600px;
+  padding: 20px 0;
+  text-align: center;
+  color: $kpr-black;
+  background-color: $kpr-ltgreen;
+  font-family: sans-serif;
+}
+
+.thumbnail {
+  display: inline-block;
+  width: 300px;
+  padding: 10px 60px;
+  text-align: left;
+  overflow: auto;
+
+  .heading {
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+  }
+
+}
 
 .panel-heading.yellow {
   background-color: #E7E247;

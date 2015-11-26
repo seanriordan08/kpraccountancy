@@ -41,7 +41,7 @@ $(document).ready(function(){
 //Typed.js
 $(function(){
   $(".active-typing").typed({
-    strings: ["We focus on what matters to <br>your business.", "We focus on what matters to <br>your enterprise.","We focus on what matters to <br>you."],
+    strings: ["We focus on what matters<br> to your business.", "We focus on what matters<br> to your enterprise.","We focus on what matters<br> to you."],
     typeSpeed: 10
   });
 });

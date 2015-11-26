@@ -31,7 +31,7 @@ $kpr-black: #383838;
 //Because Bootstap3 doesn't like <span> inline elements
 .active-typing {
   display: inline;
-  min-height: 100px;
+  height: auto;
   color: $kpr-white;
   font-family: 'Nixie One', sans-serif;
   font-size: 18px;

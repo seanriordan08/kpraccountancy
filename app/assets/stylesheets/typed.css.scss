@@ -28,12 +28,11 @@ $kpr-black: #383838;
   100% { opacity:1; }
 }
 
-//Because Bootstap3 doesn't like <span> inline elements
 .active-typing {
   display: inline;
   height: auto;
   color: $kpr-white;
-  font-family: 'Nixie One', sans-serif;
+  font-family: 'Nixie One', serif;
   font-size: 18px;
 }
 

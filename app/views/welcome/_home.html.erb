@@ -91,11 +91,11 @@
 			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li class="li_edu"><%= image_tag("Student-Hat-2.svg", class: "hat", size: "24x24", alt: "Student Hat") %></li>
-					<li class="li_exp"><%= image_tag("Diploma-2.svg", class: "diploma", size: "24x24", alt: "Diploma") %></li>
-					<li class="li_bio"><%= image_tag("Girl.svg", class: "bio", size: "24x24", alt: "Biography") %></li>
-					<li class="li_email"><%= image_tag("Envelope.svg", class: "email", size: "24x24", alt: "Email") %></li>
-					<li class="li_linkedIn"><%= image_tag("Linkedin-wht.svg", class: "email", size: "30x30", alt: "Linked In") %></li>
+					<li class="profile_tab"><%= image_tag("Student-Hat-2.svg", class: "hat", alt: "Student Hat") %></li>
+					<li class="profile_tab"><%= image_tag("Diploma-2.svg", class: "diploma", alt: "Diploma") %></li>
+					<li class="profile_tab"><%= image_tag("Girl.svg", class: "bio", alt: "Biography") %></li>
+					<li class="profile_tab"><%= image_tag("Envelope.svg", class: "email", alt: "Email") %></li>
+					<li class="profile_tab"><%= image_tag("Linkedin-wht.svg", class: "email", alt: "Linked In") %></li>
 				</ul>
 			</div>
 
@@ -133,7 +133,7 @@
 				width: target + "px",
 				height: "+=250px"
 			}, 200);
-			$(selected_icon).animate({
+			$(selected_icon).delay(200).animate({
 				width: "+=45px",
 				height: "+=45px"
 			}, 200);

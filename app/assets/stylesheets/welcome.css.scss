@@ -25,16 +25,23 @@ $kpr-green: #96E6B3;
 $kpr-yellow: #E7E247;
 $kpr-black: #383838;
 
-@mixin font-roboto {
+@mixin font-roboto($size, $weight) {
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 100;
+  font-size: $size;
+  font-weight: $weight;
 }
 
 @mixin box-sizing{
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+
+@mixin section-layout($text-color) {
+  height: auto;
+  padding: 40px;
+  text-align: center;
+  color: $text-color;
 }
 
 html {
@@ -74,7 +81,7 @@ body {
   ul {
     padding: 15px 10px;
     list-style: none;
-    @include font-roboto;
+    @include font-roboto(20px, 100);
 
     li {
       display: inline;
@@ -121,18 +128,12 @@ section {
   }
 
   .mission_statement {
-    height: auto;
-    padding: 40px;
-    text-align: center;
-    color: $kpr-black;
+    @include section-layout($kpr-black);
     background-image: url('brickwall.png');
   }
 
   .news_feed {
-    height: auto;
-    padding: 40px;
-    text-align: center;
-    color: $kpr-white;
+    @include section-layout($kpr-white);
     background-image: url('darkdenim3.png');
 
     .news_container {
@@ -170,48 +171,61 @@ section {
   }
 
   .services {
-    height: auto;
-    padding: 40px;
-    text-align: center;
-    color: $kpr-black;
+    @include section-layout($kpr-black);
     background-image: url('brickwall.png');
   }
 
   .about {
-    height: 300px;
-    padding: 40px;
-    text-align: center;
-    color: $kpr-white;
+    @include section-layout($kpr-white);
     background-image: url('darkdenim3.png');
+    .about_container {
+      text-align: left;
+    }
   }
 }
 
 .thumbnail {
   .heading {
-    padding-bottom: 10px;
+    img {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .heading_title {
+      display: table-cell;
+      padding-right: 50px;
+      vertical-align: middle;
+      text-align: center;
+    }
+    display: table;
+    width: 100%;
+    height: 60px;
+    padding-bottom: 20px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
+    @include font-roboto(24px, 500);
   }
 
   display: inline-block;
   vertical-align: top;
-  width: 300px;
-  padding: 10px 60px;
+  width: 30%;
+  margin: 10px 1%;
   text-align: left;
   overflow: auto;
 }
 
 .footer {
-  height: 30px;
-  padding: 15px;
-  .disclaimers {
-    display: inline-block;
-    padding: 10px 0;
-  }
-  .social {
-    display: inline-block;
-    padding: 10px 0;
+  display: table;
+  height: auto;
+  padding: 5px 20px;
+  .footer_contents{
+    width: 100%;
+    .disclaimers {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .social {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: right;
+    }
   }
 }

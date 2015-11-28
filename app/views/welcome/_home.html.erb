@@ -40,7 +40,10 @@
 	<div class="services">
 		<div class="title center">Services</div>
 		<div class="thumbnail">
-			<div class="heading">Tax Compliance and Advisory</div>
+			<div class="heading">
+				<%= image_tag("deal.svg", size: "60x60", alt: "Compliance") %>
+				<div class="heading_title">Tax Compliance</div>
+			</div>
 			Let’s face it! The IRS is inescapable.  Engage KPR Accountancy tax advisory services to get the best return
 			for your work determining tax breaks and strategies that will allow you to avoid paying higher taxes now and
 			in the future.
@@ -49,7 +52,10 @@
 			and can give guided instruction on compliance related matters of other federal and state regulated reportings.
 		</div>
 		<div class="thumbnail">
-			<div class="heading">System Integration</div>
+			<div class="heading">
+				<%= image_tag("cloud.svg", size: "60x60", alt: "Integration") %>
+				<div class="heading_title">System Integration</div>
+			</div>
 			Let’s find technology solutions that work best for you! Help manage your
 			business growth successfully with integrative technologies for accounting and business management.
 			<br><br>
@@ -62,7 +68,10 @@
 			tools available all at your fingertip. Let’s put dollars back into your pocket.
 		</div>
 		<div class="thumbnail">
-			<div class="heading">Financial Strategy and Accuracy</div>
+			<div class="heading">
+				<%= image_tag("chess.svg", size: "60x60", alt: "Strategy") %>
+				<div class="heading_title">Financial Strategy</div>
+			</div>
 			KPR Accountancy provides expertise in strategic financial planning – supporting where you want to
 			go and facilitating how you’re going to get there. KPR assists companies in creating accurate budgeting,
 			job cost analysis, cash flow management, and financial reporting.
@@ -77,17 +86,21 @@
 
 <section>
 	<div class="about">
-		<div class="title center">About</div>
-		<div class="about_container"></div>
+		<div class="title">About</div>
+		<div class="about_container">
+			<div><%= image_tag("profile_tall.jpg", size: "337x498", alt: "Linked In") %></div>
+		</div>
 	</div>
 </section>
 
 <div class="footer">
-	<div class="disclaimers">
-		© 2015 - Circular 230 Disclosure
-	</div>
-	<div class="social float_right">
-		<div><%= image_tag("In-2C-28px-R.png", size: "37x28", alt: "Linked In") %></div>
+	<div class="footer_contents">
+		<div class="disclaimers">
+			© 2015 - Circular 230 Disclosure
+		</div>
+		<div class="social">
+			<div><%= image_tag("Linkedin.svg", size: "36x36", alt: "Linked In") %></div>
+		</div>
 	</div>
 </div>
 

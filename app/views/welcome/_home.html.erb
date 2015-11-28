@@ -88,7 +88,14 @@
 	<div class="about">
 		<div class="title">About</div>
 		<div class="about_container">
-			<div><%= image_tag("profile_tall.jpg", size: "337x498", alt: "Linked In") %></div>
+			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
+			<div class="about_stats">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
@@ -107,5 +114,20 @@
 <script type="text/javascript">
 	$('.linked_in').click(function(){
 		window.location.href = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
+	});
+
+	$('.about_stats ul li').click(function(){
+		if ($(this).width() == 40){
+			$(this).animate({
+				width: "+=300px",
+				height: "+=300px"
+			});
+		} else {
+			$(this).animate({
+				width: "-=300px",
+				height: "-=300px"
+			});
+		}
+
 	});
 </script>

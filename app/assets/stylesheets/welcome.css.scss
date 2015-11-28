@@ -24,6 +24,7 @@ $kpr-ltgreen: #CCFCCB;
 $kpr-green: #96E6B3;
 $kpr-yellow: #E7E247;
 $kpr-black: #383838;
+$kpr-blue: #2C3E50;
 
 @mixin font-roboto($size, $weight) {
   font-family: 'Roboto', sans-serif;
@@ -188,6 +189,7 @@ section {
       position: relative;
       display: block;
       overflow: hidden;
+      z-index: 100;
       .about_img {
         position: relative;
         display: block;

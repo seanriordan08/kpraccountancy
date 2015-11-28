@@ -11,12 +11,10 @@
 
 $(function(){
   $("#doughnutChart").drawDoughnutChart([
-    { title: "Tokyo",         value : 120,  color: "#CCFCCB" },
-    { title: "San Francisco", value:  80,   color: "#d7dedb" },
-    { title: "New York",      value:  70,   color: "#96E6B3" },
-    { title: "London",        value : 50,   color: "#E7E247" },
-    { title: "Sydney",        value : 40,   color: "#D7DADB" },
-    { title: "Berlin",        value : 20,   color: "#FFF" }
+    { title: "TransFirst", value:  2,   color: "#2C3E50" },   //blue
+    { title: "KPMG",       value : 4,  color: "#CCFCCB" },    //ltgreen
+    { title: "Contracting",value : 1.5,   color: "#E7E247" }, //yellow
+    { title: "BS + Masters", value:  5,   color: "#96E6B3" }  //green
   ]);
 });
 
@@ -46,7 +44,7 @@ $(function(){
         tipOffsetY: -45,
         tipClass: "doughnutTip",
         summaryClass: "doughnutSummary",
-        summaryTitle: "TOTAL:",
+        summaryTitle: "EXPERIENCE:",
         summaryTitleClass: "doughnutSummaryTitle",
         summaryNumberClass: "doughnutSummaryNumber",
         beforeDraw: function() {  },
@@ -98,7 +96,7 @@ $(function(){
     $pathGroup.attr({opacity: 0}).appendTo($svg);
 
     //Set up tooltip
-    var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('body').hide(),
+    var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('div.about_container').hide(),
       tipW = $tip.width(),
       tipH = $tip.height();
 

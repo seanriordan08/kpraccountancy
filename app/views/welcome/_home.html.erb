@@ -91,11 +91,11 @@
 			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li class="li_diploma"><%= image_tag("Diploma-2.svg", class: "diploma", size: "24x24", alt: "Linked In") %></li>
-					<li class="">exp</li>
-					<li class="">bio</li>
-					<li class="">email</li>
-					<li class="">social</li>
+					<li class="li_edu"><%= image_tag("Student-Hat-2.svg", class: "hat", size: "24x24", alt: "Student Hat") %></li>
+					<li class="li_exp"><%= image_tag("Diploma-2.svg", class: "diploma", size: "24x24", alt: "Diploma") %></li>
+					<li class="li_bio"><%= image_tag("Girl.svg", class: "bio", size: "24x24", alt: "Biography") %></li>
+					<li class="li_email"><%= image_tag("Envelope.svg", class: "email", size: "24x24", alt: "Email") %></li>
+					<li class="li_linkedIn"><%= image_tag("Linkedin-wht.svg", class: "email", size: "30x30", alt: "Linked In") %></li>
 				</ul>
 			</div>
 
@@ -112,6 +112,7 @@
 		<div class="social">
 			<div><%= image_tag("Linkedin.svg", class: "linked_in", size: "36x36", alt: "Linked In") %></div>
 		</div>
+
 	</div>
 </section>
 
@@ -121,20 +122,26 @@
 	});
 
 	$('.about_stats ul li').on("click", function(){
+		var chart_location = $('#doughnutChart').offset().left;
+		var link_position = $(this).offset().left;
+		var target = chart_location - link_position - 50;
+
 		var selected_icon = $(this).children().first();
 
 		if ($(this).width() == 40){
 			$(this).animate({
-				width: "+=600px",
+				width: target + "px",
 				height: "+=250px"
 			}, 200);
 			$(selected_icon).animate({
 				width: "+=45px",
 				height: "+=45px"
 			}, 200);
-		} else {
+		}
+
+		else {
 			$(this).animate({
-				width: "-=600px",
+				width: "40px",
 				height: "-=250px"
 			}, 200);
 			$(selected_icon).animate({

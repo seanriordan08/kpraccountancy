@@ -211,7 +211,7 @@ section {
           li {
             @include box-shadow(.3);
             height: auto;
-            padding: 10px 5px;
+            padding: 10px 5px 6px 5px;
             background-color: #555;
             &:hover {
               background-color: #333;

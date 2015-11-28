@@ -25,10 +25,27 @@ $kpr-green: #96E6B3;
 $kpr-yellow: #E7E247;
 $kpr-black: #383838;
 
+@mixin font-roboto {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+@mixin box-sizing{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+}
+
 body {
   width: 100%;
   height: 100%;
   background-color: #F8FFFC;
+  overflow: scroll;
 }
 
 .float_left {
@@ -57,9 +74,7 @@ body {
   ul {
     padding: 15px 10px;
     list-style: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 100;
+    @include font-roboto;
 
     li {
       display: inline;
@@ -79,8 +94,7 @@ section {
   }
 
   .hero {
-    width: 100%;
-    min-height: 600px;
+    min-height: 400px;
     padding: 20px;
 
     a {
@@ -88,79 +102,116 @@ section {
       width: 130px;
       height: 35px;
       padding: 5px 0;
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
       border-radius: 4px;
       color: $kpr-black;
       background-color: $kpr-white;
       font-family: 'Lora', serif;
       font-size: 20px;
       text-decoration: none;
+      @include box-sizing;
       border: 1px solid $kpr-white;
       &:hover {
         transition: 150ms;
-        border: 1px solid $kpr-white;
         color: $kpr-white;
         background-color: transparent;
+        @include box-sizing;
+        border: 1px solid $kpr-white;
       }
     }
   }
 
   .mission_statement {
-    width: 100%;
     height: auto;
-    padding: 20px;
-    background-image: url('brickwall.png');
+    padding: 40px;
     text-align: center;
+    color: $kpr-black;
+    background-image: url('brickwall.png');
   }
 
   .news_feed {
-    width: 100%;
-    height: 500px;
-    padding: 20px;
-    background-image: url('darkdenim3.png');
-    color: $kpr-white;
+    height: auto;
+    padding: 40px;
     text-align: center;
+    color: $kpr-white;
+    background-image: url('darkdenim3.png');
+
+    .news_container {
+      color: $kpr-black;
+      .row1 {
+        .feed11 {
+          display: inline-block;
+          width: 300px;
+          height: 200px;
+          background-color: $kpr-green;
+        }
+        .feed12 {
+          display: inline-block;
+          width: 500px;
+          height: 200px;
+          background-color: $kpr-yellow;
+        }
+      }
+      .row2 {
+        margin-top: 5px;
+        .feed21 {
+          display: inline-block;
+          width: 450px;
+          height: 200px;
+          background-color: $kpr-white;
+        }
+        .feed22 {
+          display: inline-block;
+          width: 350px;
+          height: 200px;
+          background-color: $kpr-ltgreen;
+        }
+      }
+    }
   }
 
   .services {
-    width: 100%;
-    height: 600px;
-    padding: 20px;
+    height: auto;
+    padding: 40px;
     text-align: center;
     color: $kpr-black;
-    background-color: $kpr-ltgreen;
+    background-image: url('brickwall.png');
+  }
+
+  .about {
+    height: 300px;
+    padding: 40px;
+    text-align: center;
+    color: $kpr-white;
+    background-image: url('darkdenim3.png');
   }
 }
 
 .thumbnail {
-  display: inline-block;
-  width: 300px;
-  padding: 10px 60px;
-  text-align: left;
-  overflow: auto;
-
   .heading {
     padding-bottom: 10px;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 500;
   }
+
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+  padding: 10px 60px;
+  text-align: left;
+  overflow: auto;
 }
 
-  .panel-heading.yellow {
-    background-color: #E7E247;
+.footer {
+  height: 30px;
+  padding: 15px;
+  .disclaimers {
+    display: inline-block;
+    padding: 10px 0;
   }
-
-  .panel-heading.green {
-    background-color: #96E6B3;
+  .social {
+    display: inline-block;
+    padding: 10px 0;
   }
-
-  .panel-heading.ltgreen {
-    background-color: #CCFCCB;
-  }
-
-  .container-fluid.ltgreen {
-    background-color: #CCFCCB;
-  }
+}

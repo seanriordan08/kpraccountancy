@@ -23,7 +23,16 @@
 <section>
 	<div class="news_feed">
 		<div class="title center">News Feed</div>
-		<div class="news_container"></div>
+		<div class="news_container">
+			<div class="row1">
+				<div class="feed11">1</div>
+				<div class="feed12">2</div>
+			</div>
+			<div class="row2">
+				<div class="feed21">3</div>
+				<div class="feed22">4</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -65,3 +74,25 @@
 		</div>
 	</div>
 </section>
+
+<section>
+	<div class="about">
+		<div class="title center">About</div>
+		<div class="about_container"></div>
+	</div>
+</section>
+
+<div class="footer">
+	<div class="disclaimers">
+		© 2015 - Circular 230 Disclosure
+	</div>
+	<div class="social float_right">
+		<div><%= image_tag("In-2C-28px-R.png", size: "37x28", alt: "Linked In") %></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$('.social').click(function(){
+		window.location.href = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
+	});
+</script>

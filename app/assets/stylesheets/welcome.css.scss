@@ -185,6 +185,7 @@ section {
     @include section-layout($kpr-white);
     background-image: url('darkdenim3.png');
     .about_container {
+      position: relative;
       display: block;
       overflow: hidden;
       .about_img {
@@ -208,7 +209,7 @@ section {
           li {
             @include box-shadow(.3);
             height: auto;
-            padding: 5px;
+            padding: 10px 5px;
             background-color: #555;
             &:hover {
               background-color: #333;
@@ -216,6 +217,7 @@ section {
           }
         }
       }
+      @import 'doughnut';
     }
   }
 

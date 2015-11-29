@@ -91,11 +91,11 @@
 			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li><%= image_tag("Diploma-2.svg", class: "credential", alt: "Diploma") %></li>
-					<li><%= image_tag("Girl.svg", class: "biography", alt: "Biography") %></li>
-					<li><%= image_tag("Student-Hat-2.svg", class: "education", alt: "Student Hat") %></li>
-					<li><%= image_tag("Envelope.svg", class: "email", alt: "Email") %></li>
-					<li><%= image_tag("Linkedin-wht.svg", class: "social", alt: "Linked In") %></li>
+					<li class="credential"><%= image_tag("Diploma-2.svg", alt: "Credential") %></li>
+					<li class="biography"><%= image_tag("Girl.svg", alt: "Biography") %></li>
+					<li class="education"><%= image_tag("Student-Hat-2.svg", alt: "Student Hat") %></li>
+					<li class="email"><%= image_tag("Envelope.svg", alt: "Email") %></li>
+					<li class="social"><%= image_tag("Linkedin-wht.svg", alt: "Linked In") %></li>
 				</ul>
 			</div>
 			<div class="about_general"></div>
@@ -116,43 +116,61 @@
 	</div>
 </section>
 
+<div id="general_content" style="display: none">
+	general content
+</div>
 <div id="credential_content" style="display: none">
 	Keri started her accounting career with 4 years in big-4 public accounting KPMG performing company audits,
 	financial statement reviews, and tax preparations for large C-Corps, S-Corps and Partnerships. Upon relocating
 	to Colorado with her husband in 2012, Keri joined the internal corporate tax department as second in charge of
 	a large corporation grossing $400M plus annually.
-
+	<br><br>
 	Her skill set includes business forecast analytics, strategic tax planning, financial statement reporting accuracy
 	under Generally Accepted Accounting Principles (GAAP), a broad range of tax compliance work, state tax oversight,
 	and merger and acquisition due diligence processes.
 </div>
+<div id="biography_content" style="display: none">
+	biography content
+</div>
+<div id="education_content" style="display: none">
+	education conten
+</div>
 
 <script type="text/javascript">
+	var about_general = $('.about_general');
+
 	$('document').ready(function(){
-		var about_general = $('.about_general');
 		general_size = set_about_general_size(about_general);
 		about_general.css({width: general_size, height: "498px"});
-		about_general.html($('#credential_content').html());
+		set_default_about_content();
 	});
 
 
 	$('.about_stats ul li').click(function(){
 		const selected_icon = $(this).children().first();
-		$(this).addClass("selected");
 		set_tab_formatting($(this), selected_icon);
 	});
 	$('.linked_in').click(function(){
 		window.location.href = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
 	});
 
-
+	function set_default_about_content(){
+		general_content = $('#general_content').text();
+		$('.about_general').empty().append(general_content);
+	}
+	function fill_about_content(object){
+		const about_content = $('#' + object.attr('class') + '_content').html();
+		about_general.empty().append(about_content);
+	}
 	function set_tab_formatting(object, selected_icon){
 		if (object.width() == 40){
 			object.animate({width: "+=50px"}, 100);
 			$(selected_icon).delay(40).animate({paddingLeft: "+=50px"}, 200);
+			fill_about_content(object);
 		} else {
 			object.animate({width: "-=50px"}, 100);
 			$(selected_icon).animate({paddingLeft: "-=50px"}, 200);
+			set_default_about_content();
 		}
 	}
 	function set_about_general_size(about_general){

@@ -250,8 +250,11 @@ section {
       text-align: right;
       padding: 5px 20px;
       .linked_in {
+        display: block;
+        width: auto;
+        float: right;
         cursor: pointer;
-        &:hover {
+        img:hover{
           transition: .5s;
           background-color: $kpr-ltgreen;
         }

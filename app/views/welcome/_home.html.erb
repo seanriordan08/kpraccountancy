@@ -95,7 +95,7 @@
 					<li class="biography"><%= image_tag("Girl.svg", alt: "Biography") %></li>
 					<li class="education"><%= image_tag("Student-Hat-2.svg", alt: "Student Hat") %></li>
 					<li class="email"><%= image_tag("Envelope.svg", alt: "Email") %></li>
-					<li class="social"><%= image_tag("Linkedin-wht.svg", alt: "Linked In") %></li>
+					<li class="social"><%= image_tag("Linkedin-wht.svg", class: "linked_in", alt: "Linked In") %></li>
 				</ul>
 			</div>
 			<div class="about_general"></div>
@@ -107,23 +107,23 @@
 <section>
 	<div class="footer">
 		<div class="disclaimers">
-			© 2015 - Circular 230 Disclosur
+			© 2015 - Circular 230 Disclosure
 		</div>
 		<div class="social">
-			<div><%= image_tag("Linkedin.svg", class: "linked_in", size: "36x36", alt: "Linked In") %></div>
+			<div class="linked_in"><%= image_tag("Linkedin.svg", size: "36x36", alt: "Linked In") %></div>
 		</div>
 
 	</div>
 </section>
 
 <div id="general_content" style="display: none">
-	KPR Accountancy focuses on small business strategic planning.
+	KPR Accountancy was built for small business strategic planning.
 	<br>
-	We care about people first; understanding their needs, and
-	helping to position themselves for the goals of tomorrow.
+	Business are made of people - which is why we put them first; by understanding their needs of today, and
+	positioning them for the goals of tomorrow.
 </div>
 <div id="credential_content" style="display: none">
-	Keri started her accounting career with 4 years in big-4 public accounting KPMG performing company audits,
+	I started my accounting career with 4 years in big-4 public accounting KPMG performing company audits,
 	financial statement reviews, and tax preparations for large C-Corps, S-Corps and Partnerships. Upon relocating
 	to Colorado with her husband in 2012, Keri joined the internal corporate tax department as second in charge of
 	a large corporation grossing $400M plus annually.
@@ -141,6 +141,18 @@
 	Bachelor of Science degrees<br>
 	Certified Public Accountant (CPA) licensed within the State of Colorado.
 </div>
+<div id="email_content" style="display: none">
+	All pricings are a fixed fee determined based on your individual needs. Our customized pricing plan options allow
+	you to choose how involved you would like KPR to be. All services are guaranteed to your satisfaction as KPR believes
+	whole-heartedly in the quality and reliability of services to our clients.
+	<br><br><br>
+	To schedule a free “Meet & Greet” or to ask a question about how KPRs capabilities can assist in bringing your financial
+	performance to the next level, please contact us using the form below. KPR Accountancy will be in touch with you within
+	2-3 business days.
+</div>
+<div id="social_content" style="display: none">
+	Drop me a line on social media - I'd love to hear from you!
+</div>
 
 <script type="text/javascript">
 	var about_general = $('.about_general');
@@ -155,8 +167,14 @@
 	$('.about_stats ul li').click(function(){
 		set_tab_actions($(this));
 	});
-	$('.linked_in').click(function(){
-		window.location.href = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
+
+	$('.social').click(function(){
+		const url = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
+		if ($(this).attr('class') == 'linked_in'){
+			window.open(url, '_blank');
+		} else if ($(this).children().first().attr('class') == 'linked_in'){
+			window.open(url, '_blank');
+		}
 	});
 
 	function set_default_about_content(){
@@ -164,7 +182,7 @@
 		$('.about_general').empty().append(general_content);
 	}
 	function fill_about_content(object){
-		const about_content = $('#' + object.attr('class') + '_content').html();
+		const about_content = $('#' + object.attr('class') + '_content').text();
 		about_general.empty().append(about_content);
 	}
 	function set_tab_actions(object){
@@ -175,18 +193,18 @@
 			fill_about_content(object);
 			close_remaining_tabs(object);
 		} else {
-			close_about_tab(object);
+			close_this_tab(object);
 			set_default_about_content();
 		}
 	}
 	function close_remaining_tabs(object){
 		object.siblings().each(function(){
 			if ($(this).width() > 40) {
-				close_about_tab($(this));
+				close_this_tab($(this));
 			}
 		})
 	}
-	function close_about_tab(object){
+	function close_this_tab(object){
 		const selected_icon = object.children().first();
 		object.animate({width: "-=50px"}, 100);
 		$(selected_icon).animate({paddingLeft: "-=50px"}, 200);

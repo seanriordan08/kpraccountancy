@@ -217,12 +217,21 @@ section {
               transition: .15s;
               background-color: #333;
             }
-            .profile_tab img{
+            img.diploma{
               width: 24px;
               height: 24px;
             }
           }
         }
+      }
+      .about_general {
+        display: block;
+        margin: 4px 50px 0 50px;
+        float: left;
+        background-color: rgba(0,0,0,.3);
+        -moz-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,.2);
+        -webkit-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,.2);
+        box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,.2);
       }
       @import 'doughnut';
     }

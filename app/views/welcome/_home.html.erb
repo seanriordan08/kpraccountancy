@@ -91,14 +91,14 @@
 			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li class="profile_tab"><%= image_tag("Student-Hat-2.svg", class: "hat", alt: "Student Hat") %></li>
 					<li class="profile_tab"><%= image_tag("Diploma-2.svg", class: "diploma", alt: "Diploma") %></li>
 					<li class="profile_tab"><%= image_tag("Girl.svg", class: "bio", alt: "Biography") %></li>
+					<li class="profile_tab"><%= image_tag("Student-Hat-2.svg", class: "hat", alt: "Student Hat") %></li>
 					<li class="profile_tab"><%= image_tag("Envelope.svg", class: "email", alt: "Email") %></li>
 					<li class="profile_tab"><%= image_tag("Linkedin-wht.svg", class: "email", alt: "Linked In") %></li>
 				</ul>
 			</div>
-
+			<div class="about_general"></div>
 			<div id="doughnutChart" class="chart"></div>
 		</div>
 	</div>
@@ -117,38 +117,35 @@
 </section>
 
 <script type="text/javascript">
+	$('document').ready(function(){
+		var about_general = $('.about_general');
+		general_size = set_about_general_size(about_general);
+		about_general.css({width: general_size, height: "498px"});
+	});
+
+
+	$('.about_stats ul li').click(function(){
+		const selected_icon = $(this).children().first();
+		set_tab_formatting($(this), selected_icon);
+	});
 	$('.linked_in').click(function(){
 		window.location.href = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
 	});
 
-	$('.about_stats ul li').on("click", function(){
-		var chart_location = $('#doughnutChart').offset().left;
-		var link_position = $(this).offset().left;
-		var target = chart_location - link_position - 50;
 
-		var selected_icon = $(this).children().first();
-
-		if ($(this).width() == 40){
-			$(this).animate({
-				width: target + "px",
-				height: "+=250px"
-			}, 200);
-			$(selected_icon).delay(200).animate({
-				width: "+=45px",
-				height: "+=45px"
-			}, 200);
+	function set_tab_formatting(object, selected_icon){
+		if (object.width() == 40){
+			object.animate({width: "+=50px"}, 100);
+			$(selected_icon).delay(40).animate({paddingLeft: "+=50px"}, 200);
+		} else {
+			object.animate({width: "-=50px"}, 100);
+			$(selected_icon).animate({paddingLeft: "-=50px"}, 200);
 		}
-
-		else {
-			$(this).animate({
-				width: "40px",
-				height: "-=250px"
-			}, 200);
-			$(selected_icon).animate({
-				width: "-=45px",
-				height: "-=45px"
-			}, 200);
-		}
-
-	});
+	}
+	function set_about_general_size(about_general){
+		const chart_location = $('#doughnutChart').offset().left;
+		const general_location = about_general.offset().left;
+		general_size = chart_location - general_location - 35;
+		return general_size;
+	}
 </script>

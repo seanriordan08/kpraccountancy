@@ -38,10 +38,10 @@ $kpr-blue: #2C3E50;
   -webkit-box-sizing: border-box;
 }
 
-@mixin box-shadow($alpha){
-  -moz-box-shadow: 0 0 3px 1px rgba(0,0,0,$alpha);
-  -webkit-box-shadow: 0 0 3px 1px rgba(0,0,0,$alpha);
-  box-shadow: 0 0 3px 1px rgba(0,0,0,$alpha);
+@mixin box-shadow($horiz, $verti, $blur, $spread, $alpha, $inset: null){
+  -moz-box-shadow:    $inset $horiz $verti $blur $spread $alpha;
+  -webkit-box-shadow: $inset $horiz $verti $blur $spread $alpha;
+  box-shadow:         $inset $horiz $verti $blur $spread $alpha;
 }
 
 @mixin section-layout($text-color) {
@@ -195,7 +195,7 @@ section {
         display: block;
         margin: 4px 0 4px 4px;
         float: left;
-        @include box-shadow(.3);
+        @include box-shadow(0,0,3px,1px,rgba(0,0,0,.3));
         z-index: 10;
       }
       .about_stats {
@@ -209,7 +209,7 @@ section {
           list-style: none;
           cursor: pointer;
           li {
-            @include box-shadow(.3);
+            @include box-shadow(0,0,3px,1px,rgba(0,0,0,.3));
             height: auto;
             padding: 10px 5px 6px 5px;
             background-color: #555;
@@ -227,11 +227,12 @@ section {
       .about_general {
         display: block;
         margin: 4px 50px 0 50px;
+        padding: 40px;
         float: left;
         background-color: rgba(0,0,0,.3);
-        -moz-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,.2);
-        -webkit-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,.2);
-        box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,.2);
+        @include box-sizing;
+        @include box-shadow(1px, 1px, 3px, 1px,rgba(0,0,0,.2), inset);
+        overflow: scroll;
       }
       @import 'doughnut';
     }

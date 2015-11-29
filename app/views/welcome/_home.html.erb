@@ -91,11 +91,11 @@
 			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li class="profile_tab"><%= image_tag("Diploma-2.svg", class: "diploma", alt: "Diploma") %></li>
-					<li class="profile_tab"><%= image_tag("Girl.svg", class: "bio", alt: "Biography") %></li>
-					<li class="profile_tab"><%= image_tag("Student-Hat-2.svg", class: "hat", alt: "Student Hat") %></li>
-					<li class="profile_tab"><%= image_tag("Envelope.svg", class: "email", alt: "Email") %></li>
-					<li class="profile_tab"><%= image_tag("Linkedin-wht.svg", class: "email", alt: "Linked In") %></li>
+					<li><%= image_tag("Diploma-2.svg", class: "credential", alt: "Diploma") %></li>
+					<li><%= image_tag("Girl.svg", class: "biography", alt: "Biography") %></li>
+					<li><%= image_tag("Student-Hat-2.svg", class: "education", alt: "Student Hat") %></li>
+					<li><%= image_tag("Envelope.svg", class: "email", alt: "Email") %></li>
+					<li><%= image_tag("Linkedin-wht.svg", class: "social", alt: "Linked In") %></li>
 				</ul>
 			</div>
 			<div class="about_general"></div>
@@ -116,16 +116,29 @@
 	</div>
 </section>
 
+<div id="credential_content" style="display: none">
+	Keri started her accounting career with 4 years in big-4 public accounting KPMG performing company audits,
+	financial statement reviews, and tax preparations for large C-Corps, S-Corps and Partnerships. Upon relocating
+	to Colorado with her husband in 2012, Keri joined the internal corporate tax department as second in charge of
+	a large corporation grossing $400M plus annually.
+
+	Her skill set includes business forecast analytics, strategic tax planning, financial statement reporting accuracy
+	under Generally Accepted Accounting Principles (GAAP), a broad range of tax compliance work, state tax oversight,
+	and merger and acquisition due diligence processes.
+</div>
+
 <script type="text/javascript">
 	$('document').ready(function(){
 		var about_general = $('.about_general');
 		general_size = set_about_general_size(about_general);
 		about_general.css({width: general_size, height: "498px"});
+		about_general.html($('#credential_content').html());
 	});
 
 
 	$('.about_stats ul li').click(function(){
 		const selected_icon = $(this).children().first();
+		$(this).addClass("selected");
 		set_tab_formatting($(this), selected_icon);
 	});
 	$('.linked_in').click(function(){

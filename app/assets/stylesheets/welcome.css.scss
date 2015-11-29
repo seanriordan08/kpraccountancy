@@ -46,7 +46,7 @@ $kpr-blue: #2C3E50;
 
 @mixin section-layout($text-color) {
   height: auto;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
   text-align: center;
   color: $text-color;
 }
@@ -219,13 +219,30 @@ section {
       }
       .about_general {
         display: block;
+        height: auto;
         margin: 4px 50px 0 50px;
         padding: 40px;
         float: left;
         background-color: rgba(0,0,0,.3);
         @include box-sizing;
         @include box-shadow(1px, 1px, 3px, 1px,rgba(0,0,0,.2), inset);
-        overflow: scroll;
+        overflow: hidden;
+        .about_general_icon {
+          display: block;
+          width: 10%;
+          height: 100px;
+          margin-right: 5%;
+          float: left;
+          background-color: #FFF;
+        }
+        .about_general_content {
+          display: block;
+          width: 85%;
+          height: 100px;
+          float: left;
+          text-align: left;
+          background-color: #555;
+        }
       }
       @import 'doughnut';
     }

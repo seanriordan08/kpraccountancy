@@ -11,10 +11,11 @@
 
 $(function(){
   $("#doughnutChart").drawDoughnutChart([
-    { title: "TransFirst", value:  2,   color: "#2C3E50" },   //blue
-    { title: "KPMG",       value : 4,  color: "#CCFCCB" },    //ltgreen
-    { title: "Contracting",value : 1.5,   color: "#E7E247" }, //yellow
-    { title: "BS + Masters", value:  5,   color: "#96E6B3" }  //green
+    { title: "TransFirst",  value:  2,   color: "#2C3E50" },  //blue
+    { title: "KPMG",        value : 4,   color: "#CCFCCB" },  //ltgreen
+    { title: "Contracting", value : 1, color: "#E7E247" },  //yellow
+    { title: "Bachelors",   value:  4,   color: "#96E6B3" },  //green
+    { title: "Masters",     value:  1,   color: "#FFFFFF" }   //white
   ]);
 });
 

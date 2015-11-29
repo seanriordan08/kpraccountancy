@@ -170,10 +170,18 @@
 
 	$('.social').click(function(){
 		const url = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
-		if ($(this).attr('class') == 'linked_in'){
+		const social_footer_link = $(this).attr('class');
+		const social_about_tab = $(this).children().first();
+
+		if (social_footer_link == 'linked_in'){
 			window.open(url, '_blank');
-		} else if ($(this).children().first().attr('class') == 'linked_in'){
-			window.open(url, '_blank');
+		} else if (social_about_tab.hasClass('linked_in')){
+			if (!social_about_tab.hasClass('extended')){
+				social_about_tab.addClass('extended');
+				window.open(url, '_blank');
+			} else {
+				social_about_tab.removeClass('extended');
+			}
 		}
 	});
 

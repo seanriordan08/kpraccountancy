@@ -107,7 +107,7 @@
 <section>
 	<div class="footer">
 		<div class="disclaimers">
-			© 2015 - Circular 230 Disclosure
+			© 2015 - Circular 230 Disclosur
 		</div>
 		<div class="social">
 			<div><%= image_tag("Linkedin.svg", class: "linked_in", size: "36x36", alt: "Linked In") %></div>
@@ -117,7 +117,10 @@
 </section>
 
 <div id="general_content" style="display: none">
-	general content
+	KPR Accountancy focuses on small business strategic planning.
+	<br>
+	We care about people first; understanding their needs, and
+	helping to position themselves for the goals of tomorrow.
 </div>
 <div id="credential_content" style="display: none">
 	Keri started her accounting career with 4 years in big-4 public accounting KPMG performing company audits,
@@ -130,10 +133,13 @@
 	and merger and acquisition due diligence processes.
 </div>
 <div id="biography_content" style="display: none">
-	biography content
+	biography stuff
 </div>
 <div id="education_content" style="display: none">
-	education conten
+	Montana State University, Bozeman, MT<br>
+	Master of Professional Accountancy<br>
+	Bachelor of Science degrees<br>
+	Certified Public Accountant (CPA) licensed within the State of Colorado.
 </div>
 
 <script type="text/javascript">
@@ -147,8 +153,7 @@
 
 
 	$('.about_stats ul li').click(function(){
-		const selected_icon = $(this).children().first();
-		set_tab_formatting($(this), selected_icon);
+		set_tab_actions($(this));
 	});
 	$('.linked_in').click(function(){
 		window.location.href = 'https://www.linkedin.com/in/kpr-accountancy-3257a110a';
@@ -162,16 +167,29 @@
 		const about_content = $('#' + object.attr('class') + '_content').html();
 		about_general.empty().append(about_content);
 	}
-	function set_tab_formatting(object, selected_icon){
+	function set_tab_actions(object){
+		const selected_icon = object.children().first();
 		if (object.width() == 40){
 			object.animate({width: "+=50px"}, 100);
 			$(selected_icon).delay(40).animate({paddingLeft: "+=50px"}, 200);
 			fill_about_content(object);
+			close_remaining_tabs(object);
 		} else {
-			object.animate({width: "-=50px"}, 100);
-			$(selected_icon).animate({paddingLeft: "-=50px"}, 200);
+			close_about_tab(object);
 			set_default_about_content();
 		}
+	}
+	function close_remaining_tabs(object){
+		object.siblings().each(function(){
+			if ($(this).width() > 40) {
+				close_about_tab($(this));
+			}
+		})
+	}
+	function close_about_tab(object){
+		const selected_icon = object.children().first();
+		object.animate({width: "-=50px"}, 100);
+		$(selected_icon).animate({paddingLeft: "-=50px"}, 200);
 	}
 	function set_about_general_size(about_general){
 		const chart_location = $('#doughnutChart').offset().left;

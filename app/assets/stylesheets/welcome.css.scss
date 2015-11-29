@@ -82,7 +82,7 @@ body {
   bottom: auto;
   color: $kpr-white;
   background-color: rgba(0,0,0,0.3);
-  z-index: 0;
+  z-index: 3;
   img { padding-left: 10px; }
 
   ul {
@@ -100,17 +100,14 @@ body {
 section {
   font-family: 'Lora', serif;
   font-size: 16px;
-
   .title {
     padding-bottom: 20px;
     font-family: 'Nixie One', serif;
     font-size: 30px;
   }
-
   .hero {
     min-height: 400px;
     padding: 20px;
-
     a {
       display: inline-block;
       width: 130px;
@@ -133,16 +130,13 @@ section {
       }
     }
   }
-
   .mission_statement {
     @include section-layout($kpr-black);
     background-image: url('brickwall.png');
   }
-
   .news_feed {
     @include section-layout($kpr-white);
     background-image: url('darkdenim3.png');
-
     .news_container {
       color: $kpr-black;
       .row1 {
@@ -176,27 +170,26 @@ section {
       }
     }
   }
-
   .services {
     @include section-layout($kpr-black);
     background-image: url('brickwall.png');
   }
-
   .about {
     @include section-layout($kpr-white);
     background-image: url('darkdenim3.png');
     .about_container {
       position: relative;
       display: block;
+      height: 350px;
       overflow: hidden;
-      z-index: 100;
+      z-index: 0;
       .about_img {
         position: relative;
         display: block;
         margin: 4px 0 4px 4px;
         float: left;
         @include box-shadow(0,0,3px,1px,rgba(0,0,0,.3));
-        z-index: 10;
+        z-index: 1;
       }
       .about_stats {
         display: block;
@@ -237,8 +230,10 @@ section {
       @import 'doughnut';
     }
   }
-
   .footer {
+    display: table;
+    width: 100%;
+    height: auto;
     .disclaimers {
       display: table-cell;
       vertical-align: middle;
@@ -260,9 +255,6 @@ section {
         }
       }
     }
-    display: table;
-    width: 100%;
-    height: auto;
   }
 }
 

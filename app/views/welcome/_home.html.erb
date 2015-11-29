@@ -88,7 +88,7 @@
 	<div class="about">
 		<div class="title">About</div>
 		<div class="about_container">
-			<%= image_tag("profile_tall.jpg", class: "about_img", size: "337x498", alt: "Linked In") %>
+			<%= image_tag("profile_tall_337x350.jpg", class: "about_img", size: "337x350", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
 					<li class="credential"><%= image_tag("Diploma-2.svg", alt: "Credential") %></li>
@@ -151,7 +151,7 @@
 	2-3 business days.
 </div>
 <div id="social_content" style="display: none">
-	Drop me a line on social media - I'd love to hear from you!
+	Drop me a line on social media - I'd love to hear from you
 </div>
 
 <script type="text/javascript">
@@ -205,16 +205,16 @@
 			set_default_about_content();
 		}
 	}
-	function close_remaining_tabs(object){
-		object.siblings().each(function(){
+	function close_remaining_tabs(tab){
+		tab.siblings().each(function(){
 			if ($(this).width() > 40) {
 				close_this_tab($(this));
 			}
 		})
 	}
-	function close_this_tab(object){
-		const selected_icon = object.children().first();
-		object.animate({width: "-=50px"}, 100);
+	function close_this_tab(tab){
+		const selected_icon = tab.children().first();
+		tab.animate({width: "-=50px"}, 100);
 		$(selected_icon).animate({paddingLeft: "-=50px"}, 200);
 	}
 	function set_about_general_size(about_general){

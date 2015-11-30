@@ -91,8 +91,15 @@ body {
     @include font-roboto(20px, 100);
     li {
       display: inline;
-      padding: 0 10px;
       cursor: pointer;
+      &:before {
+        padding: 0 10px;
+        color: $kpr-white;
+        content: " | ";
+      }
+      &:first-child:before {
+        content: "";
+      }
       &:hover {
         color: #888;
       }

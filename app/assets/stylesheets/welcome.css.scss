@@ -44,11 +44,12 @@ $kpr-blue: #2C3E50;
   box-shadow:         $inset $horiz $verti $blur $spread $alpha;
 }
 
-@mixin section-layout($text-color) {
+@mixin section-layout($text-color, $background-image) {
   height: auto;
   padding: 20px 40px 40px 40px;
   text-align: center;
   color: $text-color;
+  background-image: $background-image;
 }
 
 html {
@@ -84,15 +85,17 @@ body {
   background-color: rgba(0,0,0,0.3);
   z-index: 3;
   img { padding-left: 10px; }
-
   ul {
     padding: 15px 10px;
     list-style: none;
     @include font-roboto(20px, 100);
-
     li {
       display: inline;
       padding: 0 10px;
+      cursor: pointer;
+      &:hover {
+        color: #888;
+      }
     }
   }
 }
@@ -131,12 +134,10 @@ section {
     }
   }
   .mission_statement {
-    @include section-layout($kpr-black);
-    background-image: url('brickwall.png');
+    @include section-layout($kpr-black, url('brickwall.png'));
   }
   .news_feed {
-    @include section-layout($kpr-white);
-    background-image: url('darkdenim3.png');
+    @include section-layout($kpr-white, url('darkdenim3.png'));
     .news_container {
       color: $kpr-black;
       .row1 {
@@ -171,12 +172,10 @@ section {
     }
   }
   .services {
-    @include section-layout($kpr-black);
-    background-image: url('brickwall.png');
+    @include section-layout($kpr-black, url('brickwall.png'));
   }
   .about {
-    @include section-layout($kpr-white);
-    background-image: url('darkdenim3.png');
+    @include section-layout($kpr-white, url('darkdenim3.png'));
     .about_container {
       position: relative;
       display: block;
@@ -253,6 +252,9 @@ section {
       }
       @import 'doughnut';
     }
+  }
+  .pricing {
+    @include section-layout($kpr-black, url('brickwall.png'));
   }
   .footer {
     display: table;

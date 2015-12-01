@@ -1,40 +1,15 @@
 
 $(document).ready(function(){
 
-  $(".navbar-brand.home").on("click", function(){
-    var selection = $('.view-port .home');
-    show_nav_link(selection);
+  $('.news_container').slick({
+    speed: 500,
+    autoplay: true,
+    draggable: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true
   });
-
-  $(".navbar-nav a.about").on("click", function(){
-    var selection = $('.view-port .about');
-    show_nav_link(selection);
-  });
-
-  $(".navbar-nav a.pricing").on("click", function(){
-    var selection = $('.view-port .pricing');
-    show_nav_link(selection);
-  });
-
-  $(".navbar-nav a.services").on("click", function(){
-    var selection = $('.view-port .services');
-    show_nav_link(selection);
-  });
-
-  $(".navbar-nav a.news").on("click", function(){
-    var selection = $('.view-port .news');
-    show_nav_link(selection);
-  });
-
-  function show_nav_link(selection){
-    $('.view-port, .footer').fadeOut(250, function(){
-      setTimeout(function(){
-        selection.css("display", "block");
-        selection.siblings().css("display", "none");
-        $('.view-port, .footer').fadeIn(200);
-      }, 200);
-    });
-  }
 
 });
 

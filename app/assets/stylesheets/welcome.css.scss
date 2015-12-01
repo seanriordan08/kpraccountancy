@@ -144,37 +144,23 @@ section {
     @include section-layout($kpr-black, url('brickwall.png'));
   }
   .news_feed {
-    @include section-layout($kpr-white, url('darkdenim3.png'));
+    height: auto;
+    padding: 20px 40px 40px 40px;
+    text-align: center;
+    color: $kpr-white;
+    background-image: url('darkdenim3.png');
     .news_container {
+      display: inline-block;
+      width: 30%;
+      height: auto;
       color: $kpr-black;
-      .row1 {
-        .feed11 {
-          display: inline-block;
-          width: 300px;
-          height: 200px;
-          background-color: $kpr-green;
-        }
-        .feed12 {
-          display: inline-block;
-          width: 500px;
-          height: 200px;
-          background-color: $kpr-yellow;
-        }
-      }
-      .row2 {
-        margin-top: 5px;
-        .feed21 {
-          display: inline-block;
-          width: 450px;
-          height: 200px;
-          background-color: $kpr-white;
-        }
-        .feed22 {
-          display: inline-block;
-          width: 350px;
-          height: 200px;
-          background-color: $kpr-ltgreen;
-        }
+      background-color: $kpr-yellow;
+      .news_content {
+        display: inline-block;
+        width: inherit;
+        height: 200px;
+        outline-width: 0;
+        cursor: pointer;
       }
     }
   }

@@ -37,7 +37,7 @@
 </section>
 
 <section>
-	<div class="services">
+	<div id="section_services" class="services">
 		<div class="title center">Services</div>
 		<div class="thumbnail">
 			<div class="heading">
@@ -85,7 +85,7 @@
 </section>
 
 <section>
-	<div class="about">
+	<div id="section_about" class="about">
 		<div class="title">About</div>
 		<div class="about_container">
 			<%= image_tag("profile_tall_337x350.jpg", class: "about_img", size: "337x350", alt: "Linked In") %>
@@ -110,7 +110,7 @@
 </section>
 
 <section>
-	<div class="pricing">
+	<div id="section_pricing" class="pricing">
 		<div class="title center">Pricing</div>
 		<div class="thumbnail">
 			<div class="heading">
@@ -206,6 +206,24 @@
 				social_about_tab.removeClass('extended');
 			}
 		}
+	});
+
+	$("#nav_services").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#section_services").offset().top - 50
+		}, 500);
+	});
+
+	$("#nav_about").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#section_about").offset().top - 50
+		}, 500);
+	});
+
+	$("#nav_pricing").click(function() {
+		$('html, body').animate({
+			scrollTop: $("#section_pricing").offset().top - 50
+		}, 400);
 	});
 
 	function set_default_about_content(){

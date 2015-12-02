@@ -89,17 +89,16 @@
 			<%= image_tag("profile_tall_337x350.jpg", class: "about_img", size: "337x350", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li class="credential"><%= image_tag("Diploma-2.svg", alt: "Credential") %></li>
+					<li class="credential"><%= image_tag("Diploma-2.svg", alt: "Credentials") %></li>
 					<li class="biography"><%= image_tag("Girl.svg", alt: "Biography") %></li>
-					<li class="education"><%= image_tag("Student-Hat-2.svg", alt: "Student Hat") %></li>
-					<li class="email"><%= image_tag("Envelope.svg", alt: "Email") %></li>
-					<li class="social"><%= image_tag("Linkedin-wht.svg", class: "linked_in", alt: "Linked In") %></li>
+					<li class="education"><%= image_tag("Student-Hat-2.svg", alt: "Education") %></li>
+					<li class="email"><%= image_tag("Envelope.svg", alt: "Contact") %></li>
+					<li class="social"><%= image_tag("Linkedin-wht.svg", class: "linked_in", alt: "Networking") %></li>
 				</ul>
 			</div>
 			<div class="about_general">
 				<div class="heading">
-					<!--<div class="about_general_icon">-->
-					<div class="heading_title">Financial Strategy</div>
+					<div class="heading_title"></div>
 				</div>
 				<div class="about_general_content"></div>
 			</div>
@@ -173,12 +172,11 @@
 	To build a design for your financial future, I provide a provide a plan as unique as your business. Give
 </div>
 <div id="social_content" style="display: none">
-	Drop me a line on social media - I'd love to hear from you!
+	Drop me a line on social media - I'd love to hear from you
 </div>
 
 <script type="text/javascript">
 	var about_general = $('.about_general');
-	var about_general_icon = $('.about_general_icon');
 	var about_general_heading = $('.about_general .heading');
 	var about_general_content = $('.about_general_content');
 
@@ -187,7 +185,6 @@
 		about_general.css({width: general_size, height: "498px"});
 		set_default_about_content();
 	});
-
 
 	$('.about_stats ul li').click(function(){
 		set_tab_actions($(this));
@@ -229,17 +226,19 @@
 	});
 
 	function set_default_about_content(){
-		var about_icon_default = '<%= j(image_tag("Information-wht.svg", alt: "Information")) %>';
+		const about_icon_default = '<%= j(image_tag("Information-wht.svg", alt: "Small Business Success")) %>';
+		const about_title_default = 'Small Business Success';
 		general_content = $('#general_content').text();
-		$('.about_general .heading img').remove();
-		about_general_heading.prepend(about_icon_default);
+		replace_about_heading_icon(about_icon_default);
+		replace_about_heading_title(about_title_default);
 		$('.about_general_content').empty().append(general_content);
 	}
 	function fill_about_content(object){
 		const about_icon = object.children().first().clone();
+		const about_title = object.children().first().attr('alt');
 		const about_content = $('#' + object.attr('class') + '_content').text();
-		$('.about_general .heading img').remove();
-		about_general_heading.prepend(about_icon);
+		replace_about_heading_icon(about_icon);
+		replace_about_heading_title(about_title);
 		about_general_content.empty().append(about_content);
 	}
 	function set_tab_actions(object){
@@ -271,5 +270,12 @@
 		const general_location = about_general.offset().left;
 		general_size = chart_location - general_location - 35;
 		return general_size;
+	}
+	function replace_about_heading_icon(about_icon){
+		$('.about_general .heading img').remove();
+		about_general_heading.prepend(about_icon);
+	}
+	function replace_about_heading_title(about_title){
+		$('.about_general .heading .heading_title').empty().text(about_title);
 	}
 </script>

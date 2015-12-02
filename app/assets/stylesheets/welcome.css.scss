@@ -158,6 +158,7 @@ section {
         height: 200px;
         color: $kpr-black;
         background-color: $kpr-white;
+        cursor: pointer;
       }
       .top-right {
         display: inline-block;
@@ -166,6 +167,7 @@ section {
         height: 200px;
         color: $kpr-black;
         background-color: $kpr-ltgreen;
+        cursor: pointer;
       }
     }
     .news_row_bottom {
@@ -177,6 +179,7 @@ section {
         margin-bottom: 30px;
         color: $kpr-black;
         background-color: $kpr-green;
+        cursor: pointer;
       }
       .news_slider {
         display: inline-block;
@@ -211,7 +214,7 @@ section {
         display: block;
         margin: 4px 0 4px 4px;
         float: left;
-        border-radius: 50% 0 0 50%;
+        border-radius: 50% 0 50% 50%;
         @include box-shadow(0,0,3px,1px,rgba(0,0,0,.3));
         z-index: 1;
       }

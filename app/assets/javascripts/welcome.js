@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-  $('.news_container').slick({
+  $('.news_slider').slick({
     speed: 500,
     autoplay: true,
     draggable: true,

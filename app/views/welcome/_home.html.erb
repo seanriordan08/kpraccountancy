@@ -89,16 +89,17 @@
 			<%= image_tag("profile_tall_337x350.jpg", class: "about_img", size: "337x350", alt: "Linked In") %>
 			<div class="about_stats">
 				<ul>
-					<li class="credential"><%= image_tag("Diploma-2.svg", class: "img", alt: "Credential") %></li>
-					<li class="biography"><%= image_tag("Girl.svg", class: "img", alt: "Biography") %></li>
-					<li class="education"><%= image_tag("Student-Hat-2.svg", class: "img", alt: "Student Hat") %></li>
-					<li class="email"><%= image_tag("Envelope.svg", class: "img", alt: "Email") %></li>
-					<li class="social"><%= image_tag("Linkedin-wht.svg", class: "img", class: "linked_in", alt: "Linked In") %></li>
+					<li class="credential"><%= image_tag("Diploma-2.svg", alt: "Credential") %></li>
+					<li class="biography"><%= image_tag("Girl.svg", alt: "Biography") %></li>
+					<li class="education"><%= image_tag("Student-Hat-2.svg", alt: "Student Hat") %></li>
+					<li class="email"><%= image_tag("Envelope.svg", alt: "Email") %></li>
+					<li class="social"><%= image_tag("Linkedin-wht.svg", class: "linked_in", alt: "Linked In") %></li>
 				</ul>
 			</div>
 			<div class="about_general">
-				<div class="about_general_icon">
-					<%= image_tag("Information-wht.svg", style: "width: 100%", alt: "Information") %>
+				<div class="heading">
+					<!--<div class="about_general_icon">-->
+					<div class="heading_title">Financial Strategy</div>
 				</div>
 				<div class="about_general_content"></div>
 			</div>
@@ -178,6 +179,7 @@
 <script type="text/javascript">
 	var about_general = $('.about_general');
 	var about_general_icon = $('.about_general_icon');
+	var about_general_heading = $('.about_general .heading');
 	var about_general_content = $('.about_general_content');
 
 	$('document').ready(function(){
@@ -227,15 +229,17 @@
 	});
 
 	function set_default_about_content(){
-		var about_icon_default = '<%= j(image_tag("Information-wht.svg", style: "width: 100%", alt: "Information")) %>';
+		var about_icon_default = '<%= j(image_tag("Information-wht.svg", alt: "Information")) %>';
 		general_content = $('#general_content').text();
-		$('.about_general_icon').empty().append(about_icon_default);
+		$('.about_general .heading img').remove();
+		about_general_heading.prepend(about_icon_default);
 		$('.about_general_content').empty().append(general_content);
 	}
 	function fill_about_content(object){
 		const about_icon = object.children().first().clone();
 		const about_content = $('#' + object.attr('class') + '_content').text();
-		about_general_icon.empty().append(about_icon);
+		$('.about_general .heading img').remove();
+		about_general_heading.prepend(about_icon);
 		about_general_content.empty().append(about_content);
 	}
 	function set_tab_actions(object){

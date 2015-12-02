@@ -150,7 +150,7 @@ section {
     color: $kpr-white;
     background-image: url('darkdenim3.png');
     .news_row_top {
-      margin: 0 0 5px 0;
+      margin-bottom: 4px;
       .top-left {
         display: inline-block;
         vertical-align: middle;
@@ -162,7 +162,7 @@ section {
       .top-right {
         display: inline-block;
         vertical-align: middle;
-        width: 25%;
+        width: 30%;
         height: 200px;
         color: $kpr-black;
         background-color: $kpr-ltgreen;
@@ -171,13 +171,16 @@ section {
     .news_row_bottom {
       .bottom-left {
         display: inline-block;
+        vertical-align: middle;
         width: 25%;
         height: 200px;
+        margin-bottom: 30px;
         color: $kpr-black;
         background-color: $kpr-green;
       }
       .news_slider {
         display: inline-block;
+        vertical-align: middle;
         width: 45%;
         height: auto;
         color: $kpr-black;

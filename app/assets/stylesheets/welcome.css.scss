@@ -180,6 +180,7 @@ section {
         display: block;
         margin: 4px 0 4px 4px;
         float: left;
+        border-radius: 50% 0 0 50%;
         @include box-shadow(0,0,3px,1px,rgba(0,0,0,.3));
         z-index: 1;
       }
@@ -285,9 +286,9 @@ section {
     }
     .heading_title {
       display: table-cell;
-      padding-right: 50px;
+      padding: 0 50px 0 40px;
       vertical-align: middle;
-      text-align: center;
+      text-align: left;
     }
     display: table;
     width: 100%;
@@ -302,4 +303,8 @@ section {
   margin: 10px 1%;
   text-align: left;
   overflow: auto;
+}
+
+.pricing .thumbnail {
+  margin: 10px 5%;
 }

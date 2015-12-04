@@ -1,9 +1,12 @@
 
 .chart {
-  position: absolute;
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
   width: 30%;
+  max-width: 337px;
   height: 100%;
-  right: 0;
+  margin-left: 40px;
   z-index: 2;
   .doughnutTip {
     position: absolute;

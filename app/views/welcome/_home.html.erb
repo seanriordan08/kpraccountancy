@@ -188,8 +188,6 @@
 	var about_general_content = $('.about_general_content');
 
 	$('document').ready(function(){
-		general_size = set_about_general_size(about_general);
-		about_general.css({width: general_size, height: "498px"});
 		set_default_about_content();
 	});
 
@@ -272,12 +270,12 @@
 		tab.animate({width: "-=50px"}, 100);
 		$(selected_icon).animate({paddingLeft: "-=50px"}, 200);
 	}
-	function set_about_general_size(about_general){
-		const chart_location = $('#doughnutChart').offset().left;
-		const general_location = about_general.offset().left;
-		general_size = chart_location - general_location - 35;
-		return general_size;
-	}
+//	function set_about_general_size(about_general){
+//		const chart_location = $('#doughnutChart').offset().left;
+//		const general_location = about_general.offset().left;
+//		general_size = chart_location - general_location - 35;
+//		return general_size;
+//	}
 	function replace_about_heading_icon(about_icon){
 		$('.about_general .heading img').remove();
 		about_general_heading.prepend(about_icon);

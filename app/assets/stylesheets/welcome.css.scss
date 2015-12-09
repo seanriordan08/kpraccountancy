@@ -207,7 +207,7 @@ section {
       position: relative;
       display: block;
       height: 350px;
-      overflow: hidden;
+      white-space: nowrap;
       z-index: 0;
       .about_img {
         position: relative;
@@ -260,6 +260,7 @@ section {
         background-color: rgba(0,0,0,.3);
         @include box-sizing;
         @include box-shadow(1px, 1px, 3px, 1px,rgba(0,0,0,.2), inset);
+        white-space: normal;
         overflow: auto;
         img {
           width: 100%;

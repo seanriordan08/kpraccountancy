@@ -8,8 +8,17 @@
  * Released under the MIT license.
  *
  */
+$(document).ready(function() {
+  drawDoughnut();
 
-$(function(){
+  window.onresize = function (event) {
+    $("#doughnutChart").empty();
+    $("#doughnutTip").empty();
+    drawDoughnut();
+  };
+});
+
+function drawDoughnut(){
   $("#doughnutChart").drawDoughnutChart([
     { title: "TransFirst",  value:  2,   color: "#2C3E50" },  //blue
     { title: "KPMG",        value : 4,   color: "#CCFCCB" },  //ltgreen
@@ -17,7 +26,7 @@ $(function(){
     { title: "Bachelors",   value:  4,   color: "#96E6B3" },  //green
     { title: "Masters",     value:  1,   color: "#FFFFFF" }   //white
   ]);
-});
+}
 
 (function($, undefined) {
   $.fn.drawDoughnutChart = function(data, options) {

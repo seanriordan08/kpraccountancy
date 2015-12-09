@@ -203,17 +203,20 @@ section {
   }
   .about {
     @include section-layout($kpr-white, url('darkdenim3.png'));
+    overflow: auto;
     .about_container {
       position: relative;
       display: block;
       height: 350px;
       white-space: nowrap;
+      margin: 1px;
+      overflow: auto;
       z-index: 0;
       .about_img {
         position: relative;
         display: inline-block;
         min-width: 200px;
-        width: 30%;
+        width: 25%;
         max-width: 337px;
         height: auto;
         margin: 4px 0 4px 4px;
@@ -251,7 +254,7 @@ section {
       .about_general {
         position: relative;
         display: inline-block;
-        width: 40%;
+        width: 35%;
         min-width: 250px;
         height: 100%;
         margin: 4px 0 0 50px;

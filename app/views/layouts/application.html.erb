@@ -30,9 +30,7 @@
 	<body>
 		<div class="container">
 			<%= render partial: "shared/nav_bar.html.erb" %>
-			<div id="sign_in_form" style="display: none;">
-				sign in form
-			</div>
+			<%= render partial: "shared/signin_form.html.erb" %>
 			<%= yield %>
 		</div>
 	</body>
@@ -45,8 +43,14 @@
 			$('#sign_in_form').fadeIn(300).attr('tabindex', -1).focus();
 		});
 
-		$('#sign_in_form').on("blur", function() {
-			$('#sign_in_form').fadeOut(300);
+		$(document).mouseup(function (e)
+		{
+			var container = $('#sign_in_form');
+			if (!container.is(e.target) // if the target of the click isn't the container...
+				&& container.has(e.target).length === 0) // ... nor a descendant of the container
+			{
+				container.fadeOut(300);
+			}
 		});
 	});
 </script>

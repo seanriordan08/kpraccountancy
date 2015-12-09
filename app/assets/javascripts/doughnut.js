@@ -8,12 +8,13 @@
  * Released under the MIT license.
  *
  */
+
 $(document).ready(function() {
   drawDoughnut();
 
   window.onresize = function (event) {
     $("#doughnutChart").empty();
-    $("#doughnutTip").empty();
+    $(".doughnutTip").empty();
     drawDoughnut();
   };
 });
@@ -50,8 +51,8 @@ function drawDoughnut(){
         animationSteps : 90,
         animationEasing : "easeInOutExpo",
         animateRotate : true,
-        tipOffsetX: -8,
-        tipOffsetY: -45,
+        tipOffsetX: 70,//-8,
+        tipOffsetY: 0,//-45,
         tipClass: "doughnutTip",
         summaryClass: "doughnutSummary",
         summaryTitle: "EXPERIENCE:",
@@ -106,7 +107,7 @@ function drawDoughnut(){
     $pathGroup.attr({opacity: 0}).appendTo($svg);
 
     //Set up tooltip
-    var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('div.about_container').hide(),
+    var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('.chart').hide(),
       tipW = $tip.width(),
       tipH = $tip.height();
 
@@ -178,11 +179,16 @@ function drawDoughnut(){
       settings.onPathLeave.apply($(this),[e,data]);
     }
     function pathMouseMove(e) {
+      cursorY = e.offset(); //+ settings.tipOffsetY;
+      cursorX = e.offset(); //- $tip.width() / 2 + settings.tipOffsetX;
       $tip.css({
-        top: e.pageY + settings.tipOffsetY,
-        left: e.pageX - $tip.width() / 2 + settings.tipOffsetX
+        top: cursorY,
+        left: cursorX
       });
+      alert("tipLocation: " + cursorX + " , " + cursorY + "\n" + "cursorLocation: " + e.pageX + " , " + e.pageY);
+      // target 1240, 1981
     }
+
     function drawPieSegments (animationDecimal) {
       var startRadius = -PI / 2,//-90 degree
         rotateAnimation = 1;

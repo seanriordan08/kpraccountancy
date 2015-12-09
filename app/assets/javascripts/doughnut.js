@@ -51,8 +51,8 @@ function drawDoughnut(){
         animationSteps : 90,
         animationEasing : "easeInOutExpo",
         animateRotate : true,
-        tipOffsetX: 70,//-8,
-        tipOffsetY: 0,//-45,
+        tipOffsetX: -40,
+        tipOffsetY: -45,
         tipClass: "doughnutTip",
         summaryClass: "doughnutSummary",
         summaryTitle: "EXPERIENCE:",
@@ -180,8 +180,8 @@ function drawDoughnut(){
     }
     function pathMouseMove(e) {
       $tip.offset({
-        top: e.pageY,
-        left: e.pageX
+        top: e.pageY + settings.tipOffsetY,
+        left: e.pageX + settings.tipOffsetX
       });
     }
 

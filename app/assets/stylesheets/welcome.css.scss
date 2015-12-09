@@ -376,6 +376,7 @@ section {
   padding: 20px;
   background-color: $kpr-white;
   border-radius: 3px;
+  outline-width: 0;
   @include box-shadow(0,0,3px,1px,rgba(0,0,0,.5));
 }
 

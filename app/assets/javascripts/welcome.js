@@ -1,7 +1,6 @@
 
 $(document).ready(function(){
   var about_general = $('.about_general');
-  var about_general_heading = $('.about_general .heading');
   var about_general_heading_img = $('.about_general .heading .image_container');
   var about_general_content = $('.about_general_content');
 

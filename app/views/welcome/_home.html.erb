@@ -182,3 +182,14 @@
 <div id="social_content" style="display: none">
 	Drop me a line on social media - I'd love to hear from you
 </div>
+<div id="sign_in_form" style="display: none;">
+	sign in form
+</div>
+
+<script type="text/javascript">
+	$("#nav_signin").click(function() {
+		var content = $('#sign_in_form');
+		$('.container div:first-child').after(content);
+		$('#sign_in_form').css("display","inline-block");
+	});
+</script>

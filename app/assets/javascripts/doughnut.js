@@ -179,14 +179,10 @@ function drawDoughnut(){
       settings.onPathLeave.apply($(this),[e,data]);
     }
     function pathMouseMove(e) {
-      cursorY = e.offset(); //+ settings.tipOffsetY;
-      cursorX = e.offset(); //- $tip.width() / 2 + settings.tipOffsetX;
-      $tip.css({
-        top: cursorY,
-        left: cursorX
+      $tip.offset({
+        top: e.pageY,
+        left: e.pageX
       });
-      alert("tipLocation: " + cursorX + " , " + cursorY + "\n" + "cursorLocation: " + e.pageX + " , " + e.pageY);
-      // target 1240, 1981
     }
 
     function drawPieSegments (animationDecimal) {

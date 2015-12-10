@@ -1,7 +1,7 @@
 class CustomFailure < Devise::FailureApp
 
   def redirect_url
-    flash[:error] = "Problem!"
+    flash[:error] = "Unable to Authorize Access"
     root_path
   end
 

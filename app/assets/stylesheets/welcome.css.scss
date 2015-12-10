@@ -104,6 +104,16 @@ body {
         color: #888;
       }
     }
+    #nav_signout {
+      color: $kpr-yellow;
+      &:before {
+        content: "";
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
   }
   .nav_links {
     padding-right: 40px;

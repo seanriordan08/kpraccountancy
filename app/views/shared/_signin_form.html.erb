@@ -1,6 +1,6 @@
 <div id="sign_in_form" style="display: none;">
 	<% if flash[:error] %>
-		<div class=".error-message"><%= flash[:error] %></div>
+		<div class="error-message"><%= flash[:error] %></div>
 	<% end %>
 
 	<%= form_for(:resource, as: :resource_name, :url => session_path(:user)) do |f| %>

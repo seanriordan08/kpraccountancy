@@ -3,7 +3,7 @@
 		<div class="error-message"><%= flash[:error] %></div>
 	<% end %>
 
-	<%= form_for(:resource, as: :resource_name, :url => session_path(:user)) do |f| %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
 		<%= f.label :email %>
 		<%= f.text_field :email %>
 		<p></p>
@@ -15,6 +15,6 @@
 		<p></p>
 		<%= f.submit 'Sign in' %>
 		<p></p>
-		<%= link_to "Forgot your password?", new_password_path(:user) %>
+		<%= link_to "Forgot your password?", new_password_path(resource_name) %>
 	<% end %>
 </div>

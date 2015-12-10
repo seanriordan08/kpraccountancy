@@ -8,6 +8,10 @@
 		<li id="nav_services">Services</li>
 		<li id="nav_about">About</li>
 		<li id="nav_pricing">Pricing</li>
-		<li id="nav_signin">Sign In</li>
+		<% if current_user %>
+			<li>Hi <%= current_user.first_name %>!</li>
+		<% else %>
+			<li id="nav_signin">Sign In</li>
+		<% end%>
 	</ul>
 </div>

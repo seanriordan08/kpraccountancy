@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :role, presence: true
 
+  def admin?
+    self.role == 'admin'
+  end
+
 end

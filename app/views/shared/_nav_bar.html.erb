@@ -19,7 +19,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#nav_signin").on("click", function() {
-			$('#sign_in_form').fadeIn(300).attr('tabindex', -1).focus();
+			if ($('#sign_in_form').is(":visible")){
+				$('#sign_in_form').fadeOut(100);
+			} else {
+				$('#sign_in_form').fadeIn(200).attr('tabindex', -1).focus();
+			}
 		});
 
 		$(document).mouseup(function (e)

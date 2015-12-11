@@ -158,6 +158,7 @@ section {
     @include section-layout($kpr-black, url('brickwall.png'));
   }
   .news_feed {
+    position: relative;
     height: auto;
     padding: 20px 40px 40px 40px;
     text-align: center;
@@ -209,6 +210,30 @@ section {
           outline-width: 0;
           cursor: pointer;
         }
+      }
+    }
+    .add_news_article {
+      position: absolute;
+      display: inline;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      text-align: right;
+      color: $kpr-white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .2s;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      &:hover {
+        transition: .2s;
+        width: 55px;
+        height: 55px;
+        margin: 7px 7px 5px 5px;
       }
     }
   }
@@ -401,4 +426,17 @@ section {
     z-index: 4;
   }
 }
-
+.news_content {
+  padding: 5px;
+  @include box-sizing;
+}
+.news_feed_title {
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  color: $kpr-white;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,.6);
+}

@@ -1,7 +1,12 @@
 <section>
-	<%# if current_user && current_user.admin? %>
 		<div class="news_feed">
-			<div class="title center">News Feed</div>
+			<div class="title center">
+				News Feed
+				<% if current_user && current_user.admin? %>
+					<div class="add_news_article"><%= image_tag("Add.svg", alt: "Add") %></div>
+				<% end %>
+			</div>
+
 			<div class="news_row_top">
 				<div class="top-left news_content" data-link=<%= news_articles[0].link if news_articles[0].present? %>>
 					<% if news_articles[0].present? %>

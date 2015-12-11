@@ -3,18 +3,13 @@
 		<div class="error-message"><%= flash[:error] %></div>
 	<% end %>
 
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-		<p></p>
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-		<p></p>
-		<%= f.check_box :remember_me %>
-		<%= f.label :remember_me %>
-		<p></p>
-		<%= f.submit 'Sign in' %>
-		<p></p>
-		<%= link_to "Forgot your password?", new_password_path(resource_name) %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: "pure-form pure-form-stacked" }) do |f| %>
+		<%= f.text_field :email, placeholder: :email %>
+		<%= f.password_field :password, placeholder: :password %>
+		<%= f.label(:remember_me, class: "pure-checkbox") do %>
+			<%= f.check_box :remember_me %> Remember me
+		<% end %>
+		<%= f.submit 'Sign in', class: "pure-button pure-button-primary" %>
+		<%= link_to "Forgot your password?", new_password_path(resource_name), class: "pure-menu-link", style: "padding: 20px 0" %>
 	<% end %>
 </div>

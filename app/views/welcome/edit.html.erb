@@ -22,7 +22,7 @@
 			</div>
 		</section>
 
-		<%= render partial: "news_feed" %>
+		<%= render partial: "news_feed", locals: { news_articles: @news_articles } %>
 
 		<section>
 			<div id="section_services" class="services">

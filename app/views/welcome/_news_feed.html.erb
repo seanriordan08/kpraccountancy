@@ -1,44 +1,5 @@
-<% if current_user && current_user.admin? %>
-	<section>
-		<div class="news_feed">
-			<div class="title center">News Feed Admin</div>
-			<div class="news_row_top">
-				<div class="top-left">
-					<div class="news_feed_title">1</div>
-				</div>
-				<div class="top-right">
-					<div class="news_feed_title">2</div>
-				</div>
-			</div>
-			<div class="news_row_bottom">
-				<div class="bottom-left">
-					<div class="news_feed_title">3</div>
-				</div>
-				<div class="news_slider">
-					<div class="news_content">
-						<div class="news_feed_title">4-1</div>
-					</div>
-					<div class="news_content">
-						<div class="news_feed_title">4-2</div>
-					</div>
-					<div class="news_content">
-						<div class="news_feed_title">4-3</div>
-					</div>
-					<div class="news_content">
-						<div class="news_feed_title">4-4</div>
-					</div>
-					<div class="news_content">
-						<div class="news_feed_title">4-5</div>
-					</div>
-					<div class="news_content">
-						<div class="news_feed_title">4-6</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-<% else %>
-	<section>
+<section>
+	<% if current_user && current_user.admin? %>
 		<div class="news_feed">
 			<div class="title center">News Feed</div>
 			<div class="news_row_top">
@@ -75,5 +36,47 @@
 				</div>
 			</div>
 		</div>
-	</section>
-<% end %>
+
+		<script>
+
+		</script>
+
+	<% else %>
+		<div class="news_feed">
+			<div class="title center">News Feed</div>
+			<div class="news_row_top">
+				<div class="top-left">
+					<div class="news_feed_title">1</div>
+				</div>
+				<div class="top-right">
+					<div class="news_feed_title">2</div>
+				</div>
+			</div>
+			<div class="news_row_bottom">
+				<div class="bottom-left">
+					<div class="news_feed_title">3</div>
+				</div>
+				<div class="news_slider">
+					<div class="news_content">
+						<div class="news_feed_title">4-1</div>
+					</div>
+					<div class="news_content">
+						<div class="news_feed_title">4-2</div>
+					</div>
+					<div class="news_content">
+						<div class="news_feed_title">4-3</div>
+					</div>
+					<div class="news_content">
+						<div class="news_feed_title">4-4</div>
+					</div>
+					<div class="news_content">
+						<div class="news_feed_title">4-5</div>
+					</div>
+					<div class="news_content">
+						<div class="news_feed_title">4-6</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</section>

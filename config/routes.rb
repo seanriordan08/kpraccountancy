@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :welcome
   resources :news_articles
 
   devise_for :users

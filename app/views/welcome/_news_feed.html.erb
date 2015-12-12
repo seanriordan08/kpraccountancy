@@ -10,13 +10,23 @@
 			<div class="news_row_top">
 				<div class="top-left news_content" data-link=<%= news_articles[0].link if news_articles[0].present? %>>
 					<% if news_articles[0].present? %>
-						<div class="news_feed_title"><%= news_articles[0].title  %></div>
+						<div class="news_feed_title">
+							<%= news_articles[0].title  %>
+							<% if current_user && current_user.admin? %>
+								<div class="delete_news_article"><%= image_tag("Close.svg", alt: "Delete") %></div>
+							<% end %>
+						</div>
 						<div class="news_feed_body"><%= news_articles[0].body %></div>
 					<% end %>
 				</div>
-				<div class="top-right news_content" data-link=<%= news_articles[1].link if news_articles[2].present? %>>
+				<div class="top-right news_content" data-link=<%= news_articles[1].link if news_articles[1].present? %>>
 					<% if news_articles[1].present? %>
-						<div class="news_feed_title"><%= news_articles[1].title  %></div>
+						<div class="news_feed_title">
+							<%= news_articles[1].title  %>
+							<% if current_user && current_user.admin? %>
+								<div class="delete_news_article"><%= image_tag("Close.svg", alt: "Delete") %></div>
+							<% end %>
+						</div>
 						<div class="news_feed_body"><%= news_articles[1].body %></div>
 					<% end %>
 				</div>
@@ -24,7 +34,12 @@
 			<div class="news_row_bottom">
 				<div class="bottom-left news_content" data-link=<%= news_articles[2].link if news_articles[2].present? %>>
 					<% if news_articles[2].present? %>
-						<div class="news_feed_title"><%= news_articles[2].title  %></div>
+						<div class="news_feed_title">
+							<%= news_articles[2].title  %>
+							<% if current_user && current_user.admin? %>
+								<div class="delete_news_article"><%= image_tag("Close.svg", alt: "Delete") %></div>
+							<% end %>
+						</div>
 						<div class="news_feed_body"><%= news_articles[2].body %></div>
 					<% end %>
 				</div>
@@ -32,7 +47,12 @@
 					<% (3..8).each do |index|%>
 						<div class="news_content" data-link=<%= news_articles[index].link if news_articles[index].present? %>>
 							<% if news_articles[index].present? %>
-								<div class="news_feed_title"><%= news_articles[index].title  %></div>
+								<div class="news_feed_title">
+									<%= news_articles[index].title  %>
+									<% if current_user && current_user.admin? %>
+										<div class="delete_news_article"><%= image_tag("Close.svg", alt: "Delete") %></div>
+									<% end %>
+								</div>
 								<div class="news_feed_body"><%= news_articles[index].body %></div>
 							<% end %>
 						</div>
@@ -46,5 +66,9 @@
 	$('.news_content').on("click", function(){
 		url_path = $(this).attr("data-link");
 		window.open(url_path, '_blank');
+	});
+
+	$('.add_news_article').on("click", function(){
+
 	})
 </script>

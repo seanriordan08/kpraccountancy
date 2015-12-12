@@ -473,3 +473,23 @@ section {
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,.1);
 }
+
+.new_article {
+  display: inline-block;
+  width: 70%;
+  height: 400px;
+  margin-bottom: 35px;
+  padding: 50px;
+  text-align: center;
+  color: $kpr-black;
+  background-color: $kpr-white;
+  @include box-sizing;
+  .wrapper {
+    width: 50%;
+    height: 200px;
+    margin: 0 auto;
+    input, textarea {
+      width: 100%;
+    }
+  }
+}

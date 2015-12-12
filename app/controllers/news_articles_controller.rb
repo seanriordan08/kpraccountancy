@@ -29,6 +29,7 @@ class NewsArticlesController < ApplicationController
     respond_to do |format|
       if @news_article.save
         format.html { redirect_to @news_article, notice: 'News article was successfully created.' }
+        format.js { render nothing: true }
         format.json { render :show, status: :created, location: @news_article }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class NewsArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_article_params
-      params.require(:news_article).permit(:title, :body)
+      params.require(:news_article).permit(:title, :body, :link)
     end
 end

@@ -1,0 +1,11 @@
+<div class="new_article">
+	<div class="wrapper">
+		<%= form_for news_article, url: { controller: "news_articles", action: "create" }, html: { class: "pure-form pure-form-stacked" }, remote: true do |f|%>
+			<%= f.text_field :title, placeholder: "Headline" %>
+			<%= f.text_area :body, placeholder: "Summary" %>
+			<%= f.text_field :link, placeholder: "http://news_article_link.com" %>
+			<br><br>
+			<%= f.submit 'Publish', class: "pure-button pure-button-primary" %>
+		<% end %>
+	</div>
+</div>

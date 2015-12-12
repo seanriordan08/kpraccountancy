@@ -9,6 +9,7 @@
 #  body       :string(255)      default("")
 #  featured   :boolean          default(TRUE)
 #  link       :string(255)
+#  deleted    :boolean          default(FALSE)
 #
 
 require 'test_helper'

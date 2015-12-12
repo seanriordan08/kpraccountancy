@@ -486,7 +486,7 @@ section {
   @include box-sizing;
   .wrapper {
     width: 50%;
-    height: 200px;
+    height: auto;
     margin: 0 auto;
     input, textarea {
       width: 100%;

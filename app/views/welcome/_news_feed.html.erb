@@ -8,24 +8,25 @@
 			</div>
 
 			<div class="news_row_top">
-				<div class="top-left news_content" data-link=<%= news_articles[0].link if news_articles[0].present? %>>
-					<% if news_articles[0].present? %>
-						<div class="news_feed_title">
-							<%= news_articles[0].title  %>
-							<% if current_user && current_user.admin? %>
-								<div class="delete_news_article" data-id=<%="#{news_articles[0].id}"%>><%= image_tag("Close.svg", alt: "Delete") %></div>
-								<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[0], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
-							<% end %>
-						</div>
-						<div class="news_feed_body"><%= news_articles[0].body %></div>
-					<% end %>
+				<div class="top-left" >
+					<div class="news_content" data-link=<%= news_articles[0].link if news_articles[0].present? %>>
+						<% if news_articles[0].present? %>
+							<div class="news_feed_title">
+								<%= news_articles[0].title  %>
+								<% if current_user && current_user.admin? %>
+									<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[0], method: :delete, data: { confirm: 'Sure you wish to Delete?' }, :class => 'delete_news_article', :remote => true %>
+								<% end %>
+							</div>
+							<div class="news_feed_body"><%= news_articles[0].body %></div>
+						<% end %>
+					</div>
 				</div>
 				<div class="top-right news_content" data-link=<%= news_articles[1].link if news_articles[1].present? %>>
 					<% if news_articles[1].present? %>
 						<div class="news_feed_title">
 							<%= news_articles[1].title  %>
 							<% if current_user && current_user.admin? %>
-								<div class="delete_news_article" data-id=<%="#{news_articles[1].id}"%>><%= image_tag("Close.svg", alt: "Delete") %></div>
+								<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[1], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
 							<% end %>
 						</div>
 						<div class="news_feed_body"><%= news_articles[1].body %></div>
@@ -38,7 +39,7 @@
 						<div class="news_feed_title">
 							<%= news_articles[2].title  %>
 							<% if current_user && current_user.admin? %>
-								<div class="delete_news_article" data-id=<%="#{news_articles[2].id}"%>><%= image_tag("Close.svg", alt: "Delete") %></div>
+								<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[2], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
 							<% end %>
 						</div>
 						<div class="news_feed_body"><%= news_articles[2].body %></div>
@@ -51,7 +52,7 @@
 								<div class="news_feed_title">
 									<%= news_articles[index].title  %>
 									<% if current_user && current_user.admin? %>
-										<div class="delete_news_article" data-id=<%="#{news_articles[index].id}"%>><%= image_tag("Close.svg", alt: "Delete") %></div>
+										<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[index], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
 									<% end %>
 								</div>
 								<div class="news_feed_body"><%= news_articles[index].body %></div>
@@ -84,7 +85,7 @@
 		bottom_row.delay().show();
 	});
 
-	$('.news_content').on("click", function(){
+	$('.news_feed_body').on("click", function(){
 		url_path = $(this).attr("data-link");
 		window.open(url_path, '_blank');
 	});

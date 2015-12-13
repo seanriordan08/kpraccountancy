@@ -3,6 +3,10 @@ class NewsArticle < ActiveRecord::Base
   validates :title, presence: true
   validates :link, presence: true
 
+  def self.get_featured
+    where(featured: true).order(created_at: :desc)
+  end
+
 end
 
 # == Schema Information

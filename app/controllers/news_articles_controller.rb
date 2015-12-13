@@ -56,9 +56,11 @@ class NewsArticlesController < ApplicationController
   # DELETE /news_articles/1.json
   def destroy
     @news_article.destroy
+    news_articles = NewsArticle.get_featured
+
     respond_to do |format|
       format.html { redirect_to news_articles_url, notice: 'News article was successfully destroyed.' }
-      format.js {}
+      format.js { render locals: { news_articles: news_articles } }
       format.json { head :no_content }
     end
   end

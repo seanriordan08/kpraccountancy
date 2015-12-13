@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
 private
 
   def get_featured_news_articles
-    @news_articles = NewsArticle.where(featured: true)
+    @news_articles = NewsArticle.get_featured
   end
 
 end

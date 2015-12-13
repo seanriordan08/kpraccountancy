@@ -1,5 +1,25 @@
 $('.delete_news_article').bind('ajax:success', function() {
 	$(this).closest('.news_content').fadeOut();
 
-	$('.news_feed_section').empty()//.append("<%#= j(render partial: "welcome/news_feed", locals: { news_articles: news_articles }) %>");
+	$('.news_row_top').empty();
+	$('.news_row_bottom').empty();
+	$('.news_slider').slick('unslick');
+
+	//$('.news_feed_section').empty(); //.append("<%#= j(render partial: "welcome/news_feed", locals: { news_articles: news_articles }) %>");
+
+
+	$('.news_row_top').append("<%= j( render partial: "welcome/news_row_top_content", locals: { news_articles: news_articles }) %>")
+		.css({opacity: 0}).show().animate({ opacity: 1 }, 200);
+	$('.news_row_bottom').append("<%= j( render partial: "welcome/news_row_bottom_content", locals: { news_articles: news_articles }) %>")
+		.css({opacity: 0}).show().animate({ opacity: 1 }, 200);
+
+	$('.news_slider').slick({
+		speed: 500,
+		autoplay: true,
+		draggable: true,
+		arrows: false,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: true
+	});
 });

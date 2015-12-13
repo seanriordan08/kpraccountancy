@@ -4,7 +4,7 @@
 			<div class="news_feed_title">
 				<%= news_articles[0].title  %>
 				<% if current_user && current_user.admin? %>
-					<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[0], method: :delete, data: { confirm: 'Sure you wish to Delete?' }, :class => 'delete_news_article', :remote => true %>
+					<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[0], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'delete_news_article', :remote => true %>
 				<% end %>
 			</div>
 			<div class="news_feed_body"><%= news_articles[0].body %></div>

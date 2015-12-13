@@ -1,3 +1,5 @@
 $('.delete_news_article').bind('ajax:success', function() {
 	$(this).closest('.news_content').fadeOut();
+
+	$('.news_feed_section').empty()//.append("<%#= j(render partial: "welcome/news_feed", locals: { news_articles: news_articles }) %>");
 });

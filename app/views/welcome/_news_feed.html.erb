@@ -1,88 +1,29 @@
-<section>
-		<div class="news_feed">
-			<div class="title center">
-				News Feed
-				<% if current_user && current_user.admin? %>
-					<div class="add_news_article"><%= image_tag("Add.svg", alt: "Add") %></div>
-				<% end %>
-			</div>
+<div class="news_feed">
+	<div class="title center">
+		News Feed
+		<% if current_user && current_user.admin? %>
+			<div class="add_news_article"><%= image_tag("Add.svg", alt: "Add") %></div>
+		<% end %>
+	</div>
 
-			<div class="news_row_top">
-				<div class="top-left" >
-					<div class="news_content" data-link=<%= news_articles[0].link if news_articles[0].present? %>>
-						<% if news_articles[0].present? %>
-							<div class="news_feed_title">
-								<%= news_articles[0].title  %>
-								<% if current_user && current_user.admin? %>
-									<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[0], method: :delete, data: { confirm: 'Sure you wish to Delete?' }, :class => 'delete_news_article', :remote => true %>
-								<% end %>
-							</div>
-							<div class="news_feed_body"><%= news_articles[0].body %></div>
-						<% end %>
-					</div>
-				</div>
-				<div class="top-right news_content" data-link=<%= news_articles[1].link if news_articles[1].present? %>>
-					<% if news_articles[1].present? %>
-						<div class="news_feed_title">
-							<%= news_articles[1].title  %>
-							<% if current_user && current_user.admin? %>
-								<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[1], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
-							<% end %>
-						</div>
-						<div class="news_feed_body"><%= news_articles[1].body %></div>
-					<% end %>
-				</div>
-			</div>
-			<div class="news_row_bottom">
-				<div class="bottom-left news_content" data-link=<%= news_articles[2].link if news_articles[2].present? %>>
-					<% if news_articles[2].present? %>
-						<div class="news_feed_title">
-							<%= news_articles[2].title  %>
-							<% if current_user && current_user.admin? %>
-								<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[2], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
-							<% end %>
-						</div>
-						<div class="news_feed_body"><%= news_articles[2].body %></div>
-					<% end %>
-				</div>
-				<div class="news_slider">
-					<% (3..8).each do |index|%>
-						<div class="news_content" data-link=<%= news_articles[index].link if news_articles[index].present? %>>
-							<% if news_articles[index].present? %>
-								<div class="news_feed_title">
-									<%= news_articles[index].title  %>
-									<% if current_user && current_user.admin? %>
-										<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[index], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
-									<% end %>
-								</div>
-								<div class="news_feed_body"><%= news_articles[index].body %></div>
-							<% end %>
-						</div>
-					<% end %>
-				</div>
-			</div>
-		</div>
-</section>
+	<div class="news_row_top">
+		<%= render partial: "welcome/news_row_top_content", locals: { news_articles: news_articles } %>
+	</div>
+	<div class="news_row_bottom">
+		<%= render partial: "welcome/news_row_bottom_content", locals: { news_articles: news_articles } %>
+	</div>
+</div>
 
 <script>
-	var top_row;
-	var bottom_row;
-
 	$('.add_news_article').on("click", function(){
-		top_row = $('.news_row_top').fadeOut(200).detach();
-		bottom_row = $('.news_row_bottom').fadeOut(200).detach();
+		$('.news_row_top').fadeOut(200).delay(200).empty();
+		$('.news_row_bottom').fadeOut(200).delay(200).empty();
+		$('.news_slider').slick('unslick');
 
-		$('.news_feed').append("<%= j(render partial: "new_article", locals: { news_article: NewsArticle.new }) %>");
+		$('.news_feed').append("<%= j(render partial: "welcome/new_article") %>");
 		$('.new_article').css("opacity", "0").animate({
 			opacity: 1
 		}, 200);
-	});
-
-	$(document).on("ajaxSuccess", function(xhr){
-		$('.new_article').remove();
-		$('.news_feed').append(top_row).append(bottom_row);
-		top_row.delay().show();
-		bottom_row.delay().show();
 	});
 
 	$('.news_feed_body').on("click", function(){

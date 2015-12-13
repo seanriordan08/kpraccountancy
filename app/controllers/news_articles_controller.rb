@@ -25,11 +25,12 @@ class NewsArticlesController < ApplicationController
   # POST /news_articles.json
   def create
     @news_article = NewsArticle.new(news_article_params)
+    news_articles = NewsArticle.get_featured
 
     respond_to do |format|
       if @news_article.save
         format.html { redirect_to @news_article, notice: 'News article was successfully created.' }
-        format.js { render nothing: true }
+        format.js { render locals: { news_articles: news_articles } }
         format.json { render :show, status: :created, location: @news_article }
       else
         format.html { render :new }

@@ -108,3 +108,9 @@ $(document).ready(function(){
     typeSpeed: 10
   });
 });
+
+$(document).bind("ajax:error", function(e,jqXHR,ajaxSettings,thrownError){
+  if (jqXHR.status == 401){
+    window.location.replace(this);
+  }
+});

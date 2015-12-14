@@ -78,7 +78,7 @@ class NewsArticlesController < ApplicationController
     end
 
     def get_updated_articles(news_article)
-      news_article.insert_featured(news_article_params[:position].to_i)
+      news_article.insert_at(news_article_params[:position].to_i)
       NewsArticle.get_featured
     end
 end

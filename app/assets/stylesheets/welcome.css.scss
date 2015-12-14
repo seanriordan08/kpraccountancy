@@ -503,6 +503,23 @@ section {
     input, textarea {
       width: 100%;
     }
+    .inline-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      label {
+        display: inline-block;
+        width: 19%;
+        margin: 10px 0 0 0;
+        padding: 0;
+        font-size: 1.2vw;
+        max-font-size: 12px;
+      }
+      #news_article_position {
+        display: inline-block;
+        width: 79%;
+        float: right;
+      }
+    }
   }
 }
 

@@ -25,10 +25,10 @@ class NewsArticlesController < ApplicationController
   # POST /news_articles.json
   def create
     @news_article = NewsArticle.new(news_article_params)
-    news_articles = NewsArticle.get_featured
 
     respond_to do |format|
       if @news_article.save
+        news_articles = get_updated_articles(@news_article)
         format.html { redirect_to @news_article, notice: 'News article was successfully created.' }
         format.js { render locals: { news_articles: news_articles } }
         format.json { render :show, status: :created, location: @news_article }
@@ -74,6 +74,11 @@ class NewsArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_article_params
-      params.require(:news_article).permit(:title, :body, :link)
+      params.require(:news_article).permit(:title, :body, :link, :position)
+    end
+
+    def get_updated_articles(news_article)
+      news_article.insert_featured(news_article_params[:position].to_i)
+      NewsArticle.get_featured
     end
 end

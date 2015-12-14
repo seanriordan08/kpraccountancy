@@ -10,6 +10,7 @@
 #  featured   :boolean          default(TRUE)
 #  link       :string(255)
 #  deleted    :boolean          default(FALSE)
+#  position   :integer          default(1)
 #
 
 require 'test_helper'

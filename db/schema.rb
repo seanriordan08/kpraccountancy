@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212042610) do
+ActiveRecord::Schema.define(version: 20151214051016) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151212042610) do
     t.boolean  "featured",               default: true
     t.string   "link",       limit: 255
     t.boolean  "deleted",                default: false
+    t.integer  "position",   limit: 4,   default: 1
   end
 
   create_table "users", force: :cascade do |t|

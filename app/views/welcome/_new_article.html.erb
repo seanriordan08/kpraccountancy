@@ -4,6 +4,7 @@
 			<%= f.text_field :title, placeholder: "Headline" %>
 			<%= f.text_area :body, placeholder: "Summary" %>
 			<%= f.text_field :link, placeholder: "http://news_article_link.com" %>
+			<%= f.text_field :position, placeholder: "Position (1,2 3...)" %>
 			<br><br>
 			<%= f.submit 'Publish', class: "pure-button pure-button-primary" %>
 		<% end %>

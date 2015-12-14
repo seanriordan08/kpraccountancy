@@ -173,7 +173,9 @@ section {
     .about_container {
       position: relative;
       display: block;
-      height: 360px;
+      @media screen and (min-width: 668px) and (max-width: 949px){
+        height: 30%;
+      }
       white-space: nowrap;
       margin: 1px;
       overflow: visible;
@@ -188,7 +190,12 @@ section {
         height: auto;
         margin: 4px 0 4px 4px;
         float: left;
-        border-radius: 50% 0 50% 50%;
+        @media screen and (max-width: 976px) {
+          border-radius: 30% 0 30% 30%;
+        }
+        @media screen and (min-width: 668px) and (max-width: 975px) {
+          border-radius: 18% 0 18% 18%;
+        }
         @include box-shadow(0, 0, 3px, 1px, rgba(0, 0, 0, .3));
         z-index: 1;
       }
@@ -221,12 +228,18 @@ section {
       .about_general {
         position: relative;
         display: inline-block;
-        width: 37%;
+        @media screen and (min-width: 1025px){
+          width: 37%;
+          float: left;
+          height: 100%;
+        };
+        @media screen and (max-width: 1024px){
+          width: 60%;
+          height: 80%;
+        }
         min-width: 250px;
-        height: 100%;
         margin: 4px 0 0 50px;
         padding: 2%;
-        float: left;
         background-color: rgba(0, 0, 0, .3);
         @include box-sizing;
         @include box-shadow(1px, 1px, 3px, 1px, rgba(0, 0, 0, .2), inset);
@@ -262,7 +275,9 @@ section {
           overflow: auto;
         }
       }
-      @import 'doughnut';
+      #doughnutChart {
+        display: none;
+      }
     }
   }
   .pricing {

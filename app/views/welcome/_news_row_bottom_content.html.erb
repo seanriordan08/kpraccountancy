@@ -3,7 +3,7 @@
 		<div class="news_feed_title">
 			<%= news_articles[2].title  %>
 			<% if current_user && current_user.admin? %>
-				<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[2], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
+				<%= link_to image_tag("Remove.svg", alt: "Delete"), news_articles[2], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
 			<% end %>
 		</div>
 		<div class="news_feed_body"><%= news_articles[2].body %></div>
@@ -16,7 +16,7 @@
 				<div class="news_feed_title">
 					<%= news_articles[index].title  %>
 					<% if current_user && current_user.admin? %>
-						<%= link_to image_tag("Close.svg", alt: "Delete"), news_articles[index], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
+						<%= link_to image_tag("Remove.svg", alt: "Delete"), news_articles[index], method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_news_article' %>
 					<% end %>
 				</div>
 				<div class="news_feed_body"><%= news_articles[index].body %></div>

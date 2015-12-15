@@ -29,6 +29,10 @@
         color: #888;
       }
     }
+    li.logo_text {
+      display: inline-block;
+      margin-top: 5px;
+    }
     #nav_signout {
       color: $kpr-yellow;
       &:before {

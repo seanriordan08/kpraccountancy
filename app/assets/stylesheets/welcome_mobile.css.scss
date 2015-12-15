@@ -10,10 +10,17 @@
   img {
     padding-left: 10px;
   }
+  .nav_links {
+    padding-right: 40px;
+    float: right;
+  }
   ul {
     padding: 10px 10px;
     list-style: none;
     @include font-roboto(20px, 100);
+
+    @import "hamburger_menu";
+
     li {
       display: none;
       cursor: pointer;
@@ -43,12 +50,9 @@
         text-decoration: none;
       }
     }
-    @import "hamburger_menu";
+
   }
-  .nav_links {
-    padding-right: 40px;
-    float: right;
-  }
+
 }
 
 section {

@@ -22,7 +22,7 @@
     @import "hamburger_menu";
 
     li {
-      display: none;
+      position: relative;
       cursor: pointer;
       &:before {
         padding: 0 10px;

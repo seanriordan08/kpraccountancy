@@ -471,3 +471,7 @@ section {
   @include transition(.2s);
   @include rotate_it(45deg);
 }
+
+#hamburger_menu {
+  display: none;
+}

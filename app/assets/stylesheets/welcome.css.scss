@@ -58,10 +58,10 @@ $kpr-blue: #2C3E50;
   -webkit-transform: rotate($angle);
 }
 
-@mixin transition($duration) {
-  transition: $duration;
-  -webkit-transition: $duration; /* Safari */
-  -moz-transition: $duration;
+@mixin transition($duration, $easing: null) {
+  transition: $duration $easing;
+  -webkit-transition: $duration $easing; /* Safari */
+  -moz-transition: $duration $easing;
 }
 
 html {

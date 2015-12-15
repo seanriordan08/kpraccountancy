@@ -360,7 +360,7 @@ section {
   width: 30%;
   margin: 10px 5%;
   text-align: left;
-  overflow: auto;
+  overflow: visible;
 }
 
 #sign_in_form {
@@ -474,4 +474,8 @@ section {
 .tilt_45 {
   @include transition(.2s);
   @include rotate_it(45deg);
+}
+
+#hamburger_menu {
+  display: none;
 }

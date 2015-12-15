@@ -103,9 +103,13 @@ $(document).ready(function(){
     dots: true
   });
 
-  $(".active-typing").typed({
+  $('.active-typing').typed({
     strings: ["We focus on what matters<br> to your business.", "We focus on what matters<br> to your enterprise.","We focus on what matters<br> to you."],
     typeSpeed: 10
+  });
+
+  $('#hamburger-menu').click(function(){
+    $(this).toggleClass('open');
   });
 });
 

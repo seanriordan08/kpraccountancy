@@ -341,7 +341,7 @@ section {
   @include font-roboto(24px, 500);
 }
 
-.thumbnail {
+.services .thumbnail {
   display: inline-block;
   vertical-align: top;
   width: 30%;
@@ -351,7 +351,12 @@ section {
 }
 
 .pricing .thumbnail {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
   margin: 10px 5%;
+  text-align: left;
+  overflow: auto;
 }
 
 #sign_in_form {

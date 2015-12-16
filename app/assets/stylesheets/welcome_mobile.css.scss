@@ -1,3 +1,7 @@
+@mixin news_feed_height{
+  height: 125px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -96,51 +100,58 @@ section {
     color: $kpr-white;
     background-image: url('darkdenim3.png');
     .news_row_top {
-      margin-bottom: 4px;
+      margin: 0 auto;
       .top-left {
-        display: inline-block;
-        vertical-align: middle;
-        width: 40%;
-        height: 200px;
+        display: block;
+        width: 90%;
+        @include news_feed_height;
+        clear: both;
+        margin: 0 auto 3px auto;
         color: $kpr-black;
         background-color: $kpr-white;
         cursor: pointer;
       }
       .top-right {
-        display: inline-block;
-        vertical-align: middle;
-        width: 30%;
-        height: 200px;
+        display: block;
+        width: 90%;
+        @include news_feed_height;
+        clear: both;
+        margin: 0 auto 3px auto;
         color: $kpr-black;
         background-color: $kpr-ltgreen;
         cursor: pointer;
       }
     }
     .news_row_bottom {
+      margin-bottom: 30px;
       .bottom-left {
-        display: inline-block;
-        vertical-align: middle;
-        width: 25%;
-        height: 200px;
-        margin-bottom: 30px;
+        display: block;
+        width: 90%;
+        @include news_feed_height;
+        clear: both;
+        margin: 0 auto 3px auto;
         color: $kpr-black;
         background-color: $kpr-green;
         cursor: pointer;
       }
       .news_slider {
-        display: inline-block;
-        vertical-align: middle;
-        width: 45%;
+        display: block;
+        width: 90%;
         height: auto;
+        clear: both;
+        margin: 0 auto;
         color: $kpr-black;
         background-color: $kpr-yellow;
         .news_content {
           display: inline-block;
           width: inherit;
-          height: 200px;
+          @include news_feed_height;
           outline-width: 0;
           cursor: pointer;
         }
+      }
+      .slick-dots {
+        top: 130px;
       }
     }
     .add_news_article {

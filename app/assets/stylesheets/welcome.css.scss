@@ -47,8 +47,8 @@ $kpr-blue: #2C3E50;
 @mixin section-layout($text-color, $background-image) {
   height: auto;
   padding: 20px 40px 40px 40px;
-  @media screen and (max-width: 699px){
-    padding: 20px;
+  @media screen and (max-width: 450px){
+    padding: 5%;
   }
   text-align: center;
   color: $text-color;

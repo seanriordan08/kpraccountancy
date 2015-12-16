@@ -91,7 +91,7 @@ section {
   .news_feed {
     position: relative;
     height: auto;
-    padding: 20px 40px 40px 40px;
+    padding: 10px;
     text-align: center;
     color: $kpr-white;
     background-image: url('darkdenim3.png');
@@ -301,9 +301,12 @@ section {
       clear: both;
       vertical-align: top;
       width: 100%;
-      margin: 10px 1%;
+      margin: 0 1% 30px 1%;
       text-align: left;
       overflow: auto;
+      .heading {
+        padding-bottom: 10px;
+      }
     }
     overflow: auto;
   }
@@ -352,15 +355,6 @@ section {
   padding-bottom: 20px;
   text-align: center;
   @include font-roboto(24px, 500);
-}
-
-.pricing .thumbnail {
-  display: inline-block;
-  vertical-align: top;
-  width: 30%;
-  margin: 10px 5%;
-  text-align: left;
-  overflow: auto;
 }
 
 #sign_in_form {

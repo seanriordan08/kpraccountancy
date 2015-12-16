@@ -10,16 +10,13 @@
   .logo_icon {
     padding-left: 10px;
   }
-  .nav_links {
-    padding-right: 40px;
-    float: right;
-  }
   .logo_text {
     padding: 15px 0 10px 10px;
     list-style: none;
     @include font-roboto(20px, 100);
   }
   ul.nav_links {
+    float: right;
     padding: 0 0 10px 10px;
     list-style: none;
     @include font-roboto(20px, 100);
@@ -27,7 +24,6 @@
     li.nav {
       position: relative;
       display: none;
-      top: 10px;
       padding: 10px 20px;
       background-color: rgba(1,1,1,.5);
       border-bottom: 1px solid rgba(1,1,1,.5);

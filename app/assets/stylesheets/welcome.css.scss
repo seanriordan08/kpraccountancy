@@ -1,35 +1,103 @@
-//Brand Color Scheme
-$kpr-white: #F8FFFC;
+//Reset all css
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+//Branding
+$kpr-white: #d7dedb;
 $kpr-ltgreen: #CCFCCB;
 $kpr-green: #96E6B3;
 $kpr-yellow: #E7E247;
 $kpr-black: #383838;
+$kpr-blue: #2C3E50;
 
-body.bg-two-tone {
+@mixin font-roboto($size, $weight) {
+  font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin box-sizing {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@mixin box-shadow($horiz, $verti, $blur, $spread, $alpha, $inset: null) {
+  box-shadow:         $inset $horiz $verti $blur $spread $alpha;
+  -moz-box-shadow:    $inset $horiz $verti $blur $spread $alpha;
+  -webkit-box-shadow: $inset $horiz $verti $blur $spread $alpha;
+}
+
+@mixin section-layout($text-color, $background-image) {
+  height: auto;
+  padding: 20px 40px 40px 40px;
+  @media screen and (max-width: 450px){
+    padding: 5%;
+  }
+  text-align: center;
+  color: $text-color;
+  background-image: $background-image;
+}
+
+@mixin rotate_it($angle) {
+  transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -webkit-transform: rotate($angle);
+}
+
+@mixin transition($duration, $easing: null) {
+  transition: $duration $easing;
+  -webkit-transition: $duration $easing; /* Safari */
+  -moz-transition: $duration $easing;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
   height: 100%;
   background-color: $kpr-white;
-  overflow-x: hidden;
+  overflow: scroll;
 }
 
-.panel-heading.yellow {
-  background-color: $kpr-yellow;
+.float_left {
+  float: left;
 }
 
-.panel-heading.green {
-   background-color: $kpr-green;
- }
-
-.panel-heading.ltgreen {
-  background-color: $kpr-ltgreen;
+.float_right {
+  float: right;
 }
-
-.container-fluid.ltgreen {
-  background-color: $kpr-ltgreen;
-}
-
-.panel-body::-moz-selection { background: $kpr-yellow }
-.panel-body::selection { background: $kpr-yellow }
 
 .center {
   text-align: center;
+}
+
+@media screen and (min-width: 950px) {
+  @import 'welcome_desktop';
+}
+
+@media screen and (min-width: 700px) and (max-width: 949px){
+  @import 'welcome_tablet';
+}
+
+@media screen and (max-width: 699px){
+  @import 'welcome_mobile';
 }

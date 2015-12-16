@@ -1,0 +1,57 @@
+<div class="news_feed">
+	<div class="title center">
+		News Feed
+		<% if current_user && current_user.admin? %>
+			<div class="add_news_article"><%= image_tag("Add.svg", alt: "Add") %></div>
+		<% end %>
+	</div>
+
+	<div class="news_row_top">
+		<%= render partial: "welcome/news_row_top_content", locals: { news_articles: news_articles } %>
+	</div>
+	<div class="news_row_bottom">
+		<%= render partial: "welcome/news_row_bottom_content", locals: { news_articles: news_articles } %>
+	</div>
+</div>
+
+<script>
+	$('.add_news_article').on("click", function(){
+
+		if ($('.new_article').is(':visible')){
+			$('.new_article').fadeOut(200).delay(200).remove();
+
+			$('.news_row_top').append("<%= j( render partial: "welcome/news_row_top_content", locals: { news_articles: news_articles }) %>")
+				.css({opacity: 0}).show().animate({ opacity: 1 }, 200);
+			$('.news_row_bottom').append("<%= j( render partial: "welcome/news_row_bottom_content", locals: { news_articles: news_articles }) %>")
+				.css({opacity: 0}).show().animate({ opacity: 1 }, 200);
+
+			$('.news_slider').slick({
+				speed: 500,
+				autoplay: true,
+				draggable: true,
+				arrows: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				dots: true
+			});
+
+			$(this).removeClass('tilt_45');
+		} else {
+			$('.news_row_top').fadeOut(200).delay(200).empty();
+			$('.news_row_bottom').fadeOut(200).delay(200).empty();
+			$('.news_slider').slick('unslick');
+
+			$('.news_feed').append("<%= j(render partial: "welcome/new_article") %>");
+			$('.new_article').css("opacity", "0").animate({
+				opacity: 1
+			}, 200);
+
+			$(this).addClass('tilt_45');
+		}
+	});
+
+	$('.news_feed_body').on("click", function(){
+		url_path = $(this).attr("data-link");
+		window.open(url_path, '_blank');
+	});
+</script>

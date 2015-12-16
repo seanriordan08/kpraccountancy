@@ -1,0 +1,15 @@
+<div id="sign_in_form" style="display: none;">
+	<% if flash[:error] %>
+		<div class="error-message"><%= flash[:error] %></div>
+	<% end %>
+
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: "pure-form pure-form-stacked" }) do |f| %>
+		<%= f.text_field :email, placeholder: :email %>
+		<%= f.password_field :password, placeholder: :password %>
+		<%= f.label(:remember_me, class: "pure-checkbox") do %>
+			<%= f.check_box :remember_me %> Remember me
+		<% end %>
+		<%= f.submit 'Sign in', class: "pure-button pure-button-primary" %>
+		<%#= link_to "Forgot your password?", new_password_path(resource_name), class: "pure-menu-link", style: "padding: 20px 0" %>
+	<% end %>
+</div>

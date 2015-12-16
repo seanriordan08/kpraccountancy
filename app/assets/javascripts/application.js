@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require turbolinks
 //= require typed.js-master/js/typed.js
 //= require_tree .

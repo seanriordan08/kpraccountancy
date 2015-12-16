@@ -11,10 +11,8 @@
  * file per style scope.
  */
 
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import "parallax";
 @import "brand";
 @import "typed"; //http://www.mattboldt.com/demos/typed-js/
 @import "welcome";
+@import "messages";

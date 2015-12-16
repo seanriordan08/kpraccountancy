@@ -1,0 +1,17 @@
+<div class="new_article">
+	<div class="wrapper">
+		<%= form_for NewsArticle.new, url: { controller: "news_articles", action: "create" }, html: { class: "pure-form pure-form-aligned" }, remote: true do |f|%>
+			<fieldset>
+			  <%= f.text_field :title, placeholder: "Headline" %>
+  			<%= f.text_area :body, placeholder: "Summary" %>
+  			<%= f.text_field :link, placeholder: "http://news_article_link.com" %>
+				<div class="inline-wrapper">
+					<%= f.label :position, "Position:" %>
+					<%= f.text_field :position %>
+				</div>
+  			<br><br>
+  			<%= f.submit 'Publish', class: "pure-button pure-button-primary" %>
+			</fieldset>
+		<% end %>
+	</div>
+</div>

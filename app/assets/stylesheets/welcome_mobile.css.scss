@@ -296,6 +296,16 @@ section {
   }
   .pricing {
     @include section-layout($kpr-black, url('brickwall.png'));
+    .thumbnail {
+      display: block;
+      clear: both;
+      vertical-align: top;
+      width: 100%;
+      margin: 10px 1%;
+      text-align: left;
+      overflow: auto;
+    }
+    overflow: auto;
   }
   .footer {
     display: table;

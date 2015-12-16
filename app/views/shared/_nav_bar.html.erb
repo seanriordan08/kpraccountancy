@@ -29,16 +29,6 @@
 			}
 		});
 
-		$('#hamburger-menu').on("click", function(){
-			if ($('.nav').is(":visible")){
-				$(this).css("margin", "0 10px 0 0");
-				$('.nav').fadeOut(100);
-			} else {
-				$(this).css("margin", "0 0 0 50%");
-				$('.nav').fadeIn(100);
-			}
-		});
-
 		$(document).mouseup(function (e)
 		{
 			var container = $('#sign_in_form');

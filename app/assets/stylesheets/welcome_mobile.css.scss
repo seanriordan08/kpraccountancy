@@ -15,13 +15,12 @@
     float: right;
   }
   .logo_text {
-    display: inline-block;
-    padding: 10px 0 10px 10px;
+    padding: 15px 0 10px 10px;
     list-style: none;
     @include font-roboto(20px, 100);
   }
   ul.nav_links {
-    padding: 10px 0 10px 10px;
+    padding: 0 0 10px 10px;
     list-style: none;
     @include font-roboto(20px, 100);
     @import "hamburger_menu";

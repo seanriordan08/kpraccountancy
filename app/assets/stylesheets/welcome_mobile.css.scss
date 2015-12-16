@@ -7,7 +7,7 @@
   color: $kpr-white;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
-  img {
+  .logo_icon {
     padding-left: 10px;
   }
   .nav_links {
@@ -25,8 +25,9 @@
     list-style: none;
     @include font-roboto(20px, 100);
     @import "hamburger_menu";
-    li {
+    li.nav {
       position: relative;
+      display: none;
       top: 10px;
       padding: 10px 20px;
       background-color: rgba(1,1,1,.5);

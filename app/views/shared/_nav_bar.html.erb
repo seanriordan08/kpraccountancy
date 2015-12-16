@@ -1,5 +1,5 @@
 <div class="header">
-	<%= image_tag("logo_50.png", size: "50x50", alt: "KPR Ascent", class: "float_left") %>
+	<%= image_tag("logo_50.png", size: "50x50", alt: "KPR Ascent", class: "logo_icon float_left") %>
 	<ul class="float_left">
 		<li class="logo_text">KPR Accountancy</li>
 	</ul>
@@ -8,13 +8,13 @@
 		<div id="hamburger-menu">
 			<span></span><span></span><span></span><span></span>
 		</div>
-		<li id="nav_services">Services</li>
-		<li id="nav_about">About</li>
-		<li id="nav_pricing">Pricing</li>
+		<li id="nav_services" class="nav">Services</li>
+		<li id="nav_about" class="nav">About</li>
+		<li id="nav_pricing" class="nav">Pricing</li>
 		<% if current_user %>
-			<li id="nav_signout"><%= link_to("Logout #{current_user.first_name}", destroy_user_session_path, :method => :delete) %> <%=  %></li>
+			<li id="nav_signout" class="nav"><%= link_to("Logout #{current_user.first_name}", destroy_user_session_path, :method => :delete) %> <%=  %></li>
 		<% else %>
-			<li id="nav_signin">Sign In</li>
+			<li id="nav_signin" class="nav">Sign In</li>
 		<% end %>
 	</ul>
 </div>
@@ -26,6 +26,16 @@
 				$('#sign_in_form').fadeOut(100);
 			} else {
 				$('#sign_in_form').fadeIn(200).attr('tabindex', -1).focus();
+			}
+		});
+
+		$('#hamburger-menu').on("click", function(){
+			if ($('.nav').is(":visible")){
+				$(this).css("margin", "0 10px 0 0");
+				$('.nav').fadeOut(100);
+			} else {
+				$(this).css("margin", "0 0 0 50%");
+				$('.nav').fadeIn(100);
 			}
 		});
 

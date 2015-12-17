@@ -272,7 +272,9 @@ section {
         overflow: auto;
         .heading {
           position: relative;
+          width: 100%;
           padding-left: 5%;
+          @include box-sizing;
           .image_container {
             position: relative;
             vertical-align: middle;

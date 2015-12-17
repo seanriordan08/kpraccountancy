@@ -98,7 +98,7 @@ section {
     padding: 10px;
     text-align: center;
     color: $kpr-white;
-    background-image: asset-path('darkdenim3.png');
+    background-image: url('darkdenim3.png');
     .news_row_top {
       margin: 0 auto;
       .top-left {
@@ -182,7 +182,7 @@ section {
     }
   }
   .services {
-    @include section-layout($kpr-black, asset-path('brickwall.png'));
+    @include section-layout($kpr-black, url('brickwall.png'));
     @media screen and (min-width: 850px) {
       .thumbnail {
         display: inline-block;
@@ -207,7 +207,7 @@ section {
     overflow: auto;
   }
   .about {
-    @include section-layout($kpr-white, asset-path('darkdenim3.png'));
+    @include section-layout($kpr-white, url('darkdenim3.png'));
     overflow: visible;
     .about_container {
       position: relative;
@@ -306,7 +306,7 @@ section {
     }
   }
   .pricing {
-    @include section-layout($kpr-black, asset-path('brickwall.png'));
+    @include section-layout($kpr-black, url('brickwall.png'));
     .thumbnail {
       display: block;
       clear: both;
@@ -376,7 +376,7 @@ section {
   height: 140px;
   margin: 5px;
   padding: 20px;
-  background: asset-path('skyline_crop.jpg') no-repeat top left scroll;
+  background: url('skyline_crop.jpg') no-repeat top left scroll;
   outline-width: 0;
   @include box-shadow(0, 0, 3px, 1px, rgba(0, 0, 0, .5));
   &:before {

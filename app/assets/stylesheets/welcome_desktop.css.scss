@@ -116,19 +116,19 @@ section {
       }
     }
     .news_row_bottom {
+      margin-bottom: 30px;
       .bottom-left {
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         width: 25%;
         height: 200px;
-        margin-bottom: 30px;
         color: $kpr-black;
         background-color: $kpr-green;
         cursor: pointer;
       }
       .news_slider {
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         width: 45%;
         height: auto;
         color: $kpr-black;
@@ -396,14 +396,16 @@ section {
 .news_feed_title {
   position: relative;
   width: 100%;
-  height: auto;
-  padding: 10px 0;
+  height: 64px;
+  padding: 10px;
   font-family: sans-serif;
   font-size: 1.2em;
   text-shadow: 0 0 3px rgba(0, 0, 0, .9);
   color: $kpr-white;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, .6);
+  overflow: hidden;
+  @include box-sizing;
   .delete_news_article {
     position: absolute;
     display: inline;
@@ -427,13 +429,14 @@ section {
 }
 .news_feed_body {
   width: 100%;
-  height: -webkit-calc(100% - 60px);
-  height: -moz-calc(100% - 60px);
-  height: calc(100% - 60px);
+  height: -webkit-calc(100% - 64px);
+  height: -moz-calc(100% - 64px);
+  height: calc(100% - 64px);
   padding: 10px 0;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, .1);
   cursor: pointer;
+  @include box-sizing;
 }
 
 .new_article {

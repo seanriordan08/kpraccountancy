@@ -101,3 +101,54 @@ body {
 @media screen and (max-width: 699px){
   @import 'welcome_mobile';
 }
+
+.chat_action_white {
+  display: inline-block;
+  width: 130px;
+  height: 35px;
+  padding: 5px 0;
+  border-radius: 4px;
+  color: $kpr-black;
+  background-color: $kpr-white;
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  text-decoration: none;
+  @include box-sizing;
+  border: 1px solid $kpr-white;
+  &:hover {
+    @include transition(150ms);
+    color: $kpr-white;
+    background-color: transparent;
+    @include box-sizing;
+    border: 1px solid $kpr-white;
+  }
+}
+
+.chat_action_black {
+  display: inline-block;
+  width: 130px;
+  height: 35px;
+  padding: 5px 0;
+  border-radius: 4px;
+  color: $kpr-white;
+  background-color: $kpr-black;
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  text-decoration: none;
+  @include box-sizing;
+  border: 1px solid $kpr-black;
+  &:hover {
+    @include transition(150ms);
+    color: $kpr-black;
+    background-color: transparent;
+    @include box-sizing;
+    border: 1px solid $kpr-black;
+  }
+}
+
+.about_general_content {
+  a {
+    text-decoration: underline;
+    color: $kpr-white
+  }
+}

@@ -48,7 +48,7 @@ $(document).ready(function(){
   function set_default_about_content(){
     const about_icon_default = '<img src="/assets/Information-wht.svg" width="60" height="60" alt="Small Business Success">';
     const about_title_default = 'Small Business Success';
-    general_content = $('#general_content').text();
+    general_content = $('#general_content').html();
     replace_about_heading_icon(about_icon_default);
     replace_about_heading_title(about_title_default);
     $('.about_general_content').empty().append(general_content);
@@ -56,7 +56,7 @@ $(document).ready(function(){
   function fill_about_content(object){
     const about_icon = object.children().first().clone();
     const about_title = object.children().first().attr('alt');
-    const about_content = $('#' + object.attr('class') + '_content').text();
+    const about_content = $('#' + object.attr('class') + '_content').html();
     replace_about_heading_icon(about_icon);
     replace_about_heading_title(about_title);
     about_general_content.empty().append(about_content);

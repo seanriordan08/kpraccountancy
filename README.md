@@ -20,7 +20,9 @@ local: bin/rake db:create
 
 ### if using basic ansible provisioner
 -modify `telemark-ops/ansible/production`
+
 -modify `telemark-ops/ansible/group_vars/production`
+
 -modify `telemark-ops/ansible/group_vars/all`
 
 

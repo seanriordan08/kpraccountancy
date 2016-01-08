@@ -24,6 +24,7 @@ end
 #  role                   :string(255)      default("client")
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  account_id             :integer
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)

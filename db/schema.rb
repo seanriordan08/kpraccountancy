@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151214051016) do
     t.string   "role",                   limit: 255, default: "client"
     t.datetime "created_at",                                            null: false
     t.datetime "updated_at",                                            null: false
+    t.integer  "account_id",             limit: 4
     t.string   "email",                  limit: 255, default: "",       null: false
     t.string   "encrypted_password",     limit: 255, default: "",       null: false
     t.string   "reset_password_token",   limit: 255

@@ -142,7 +142,7 @@ body {
 }
 
 #admin_dashboard {
-  height: 400px;
+  height: auto;
   padding: 70px 20px 20px 20px;
   text-align: center;
   color: $kpr-white;
@@ -150,8 +150,8 @@ body {
   font-size: 30px;
   background-color: $kpr-blue;
   box-sizing: border-box;
-  .widgit_container {
-    position: relative;
+  clear: both;
+  .widget_container {
     display: block;
     width: 100%;
     height: 100%;
@@ -160,9 +160,20 @@ body {
     clear: both;
     box-sizing: border-box;
     overflow: auto;
-    .widgit {
-      height: auto;
-      box-sizing: border-box;
+
+    .widget {
+      .widget_image {
+        width: 20%;
+        height: 200px;
+        margin: 0 0 10px 0;
+        color: $kpr-black;
+        background-color: $kpr-white;
+      }
+      a {
+        width: 20%;
+        height: auto;
+        box-sizing: border-box;
+      }
     }
   }
 }

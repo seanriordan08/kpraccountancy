@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
   resources :welcome
   resources :news_articles
+  resources :company_accounts do
+    collection { post :import }
+  end
 
   devise_for :users
 

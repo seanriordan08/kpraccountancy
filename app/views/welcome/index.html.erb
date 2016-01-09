@@ -1,13 +1,17 @@
 <div class="view-port">
 	<div class="home">
 		<section>
-			<div class="hero bg-1 center">
-				<div style="padding-top: 100px; height: 42px">
-					<div class="active-typing"></div>
+			<% if current_user && current_user.admin? %>
+				<%= render partial: "admin_dashboard" %>
+			<% else %>
+				<div class="hero bg-1 center">
+					<div style="padding-top: 100px; height: 42px">
+						<div class="active-typing"></div>
+					</div>
+					<br><br>
+					<a class="chat_action_white" href="mailto:kriordan@kpraccountancy.com?Subject=Pricing Inquiry" target="_top">Let's Chat</a>
 				</div>
-				<br><br>
-				<a class="chat_action_white" href="mailto:kriordan@kpraccountancy.com?Subject=Pricing Inquiry" target="_top">Let's Chat</a>
-			</div>
+			<% end %>
 		</section>
 
 		<section>

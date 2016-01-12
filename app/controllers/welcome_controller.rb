@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index]
   before_action :get_featured_news_articles
+  after_action :allow_iframe, only: :index
 
   def index
 
@@ -15,6 +16,10 @@ private
 
   def get_featured_news_articles
     @news_articles = NewsArticle.get_featured
+  end
+
+  def allow_iframe
+    response.headers['X-Frame-Options'] = 'ALLOW-FROM http://www.seanvelope.com'
   end
 
 end

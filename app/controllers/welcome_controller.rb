@@ -19,7 +19,7 @@ private
   end
 
   def allow_iframe
-    response.headers['X-Frame-Options'] = 'ALLOW-FROM http://www.seanvelope.com'
+    response.headers.except! ['X-Frame-Options']
   end
 
 end

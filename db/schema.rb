@@ -11,9 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118202806) do
+ActiveRecord::Schema.define(version: 20160118233622) do
 
   create_table "accounts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "budgets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +44,14 @@ ActiveRecord::Schema.define(version: 20160118202806) do
   end
 
   add_index "company_accounts", ["company_id"], name: "fk_rails_f9fca01a1d", using: :btree
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.string   "state",      limit: 255, null: false
+    t.string   "city",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title",      limit: 255

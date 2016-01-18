@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :company_accounts do
     collection { post :import }
   end
+  resources :budgets do
+    collection { post :import }
+  end
 
   devise_for :users
 

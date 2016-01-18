@@ -8,7 +8,6 @@ class WelcomeController < ApplicationController
     @companies = Company.all
   end
 
-
 private
 
   def get_featured_news_articles

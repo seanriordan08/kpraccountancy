@@ -16,10 +16,14 @@
       <%= form_tag import_budgets_path, multipart: true do %>
         <%= file_field_tag :file %>
         <%= select_tag "companies", options_from_collection_for_select(@companies, "id", "name"), prompt: "Please Select Company" %>
-        <%= select_tag "jobs", options_from_collection_for_select(@jobs, "id", "name"), prompt: "Please Select Job" %>
+        <%= select_tag "jobs", options_from_collection_for_select(Job.get_jobs, "id", "name"), prompt: "Please Select Job" %>
         <br>
         <%= submit_tag "Upload (.csv)" %>
       <% end %>
     </div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+</script>

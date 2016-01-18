@@ -2,7 +2,7 @@ class CompanyAccount < ActiveRecord::Base
 
   require 'csv'
 
-  # belongs_to :company
+  belongs_to :company
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
@@ -31,4 +31,9 @@ end
 #  detail_type  :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  company_id   :integer
+#
+# Indexes
+#
+#  fk_rails_f9fca01a1d  (company_id)
 #

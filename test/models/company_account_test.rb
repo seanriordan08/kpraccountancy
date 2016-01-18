@@ -17,4 +17,9 @@ end
 #  detail_type  :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  company_id   :integer
+#
+# Indexes
+#
+#  fk_rails_f9fca01a1d  (company_id)
 #

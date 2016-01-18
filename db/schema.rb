@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118191827) do
+ActiveRecord::Schema.define(version: 20160118202806) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(version: 20160118191827) do
     t.string   "detail_type",  limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "company_id",   limit: 4
   end
+
+  add_index "company_accounts", ["company_id"], name: "fk_rails_f9fca01a1d", using: :btree
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -79,4 +82,5 @@ ActiveRecord::Schema.define(version: 20160118191827) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "company_accounts", "companies"
 end

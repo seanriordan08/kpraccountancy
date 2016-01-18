@@ -67,6 +67,14 @@ $kpr-blue: #2C3E50;
   -moz-transition: $duration $easing;
 }
 
+@mixin element-alignment($side) {
+  display: block;
+  float: $side;
+  clear: both;
+  margin: 5px;
+  cursor: pointer;
+}
+
 html {
   width: 100%;
 }
@@ -173,13 +181,21 @@ body {
       form {
         clear: both;
         width: 25%;
-        height: auto;
+        height: 120px;
         padding: 10px;
         color: $kpr-black;
         background-color: $kpr-white;
         box-sizing: border-box;
         input {
-          margin: 5px;
+          @include element-alignment(left);
+        }
+
+        input[type=submit] {
+          @include element-alignment(right);
+        }
+
+        select {
+          @include element-alignment(left);
         }
       }
     }

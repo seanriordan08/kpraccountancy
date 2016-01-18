@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   after_action :allow_iframe, only: :index
 
   def index
-
+    @companies = Company.all
   end
 
   def edit

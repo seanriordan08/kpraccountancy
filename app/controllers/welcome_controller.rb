@@ -8,9 +8,6 @@ class WelcomeController < ApplicationController
     @companies = Company.all
   end
 
-  def edit
-
-  end
 
 private
 

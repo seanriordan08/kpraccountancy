@@ -16,4 +16,9 @@ end
 #  city       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  company_id :integer
+#
+# Indexes
+#
+#  fk_rails_b34da78090  (company_id)
 #

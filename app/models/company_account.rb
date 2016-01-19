@@ -25,8 +25,8 @@ end
 # Table name: company_accounts
 #
 #  id           :integer          not null, primary key
-#  number       :integer
-#  name         :string(255)
+#  number       :integer          not null
+#  name         :string(255)      not null
 #  account_type :string(255)
 #  detail_type  :string(255)
 #  created_at   :datetime         not null
@@ -35,5 +35,6 @@ end
 #
 # Indexes
 #
-#  fk_rails_f9fca01a1d  (company_id)
+#  fk_rails_f9fca01a1d               (company_id)
+#  index_company_accounts_on_number  (number) UNIQUE
 #

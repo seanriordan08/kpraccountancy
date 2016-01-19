@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119180958) do
+ActiveRecord::Schema.define(version: 20160119185708) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20160119180958) do
   end
 
   create_table "budgets", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "job_id",     limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "job_id",           limit: 4
+    t.integer  "estimated_amount", limit: 4
   end
 
   add_index "budgets", ["job_id"], name: "fk_rails_9c80a19020", using: :btree
@@ -37,8 +38,8 @@ ActiveRecord::Schema.define(version: 20160119180958) do
   end
 
   create_table "company_accounts", force: :cascade do |t|
-    t.integer  "number",       limit: 4
-    t.string   "name",         limit: 255
+    t.integer  "number",       limit: 4,   null: false
+    t.string   "name",         limit: 255, null: false
     t.string   "account_type", limit: 255
     t.string   "detail_type",  limit: 255
     t.datetime "created_at",               null: false
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160119180958) do
   end
 
   add_index "company_accounts", ["company_id"], name: "fk_rails_f9fca01a1d", using: :btree
+  add_index "company_accounts", ["number"], name: "index_company_accounts_on_number", unique: true, using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false

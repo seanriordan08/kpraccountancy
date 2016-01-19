@@ -1,6 +1,7 @@
 class Job < ActiveRecord::Base
 
   belongs_to :company
+  has_one :budget
 
   def self.get_jobs
     Job.all

@@ -1,6 +1,8 @@
 class Budget < ActiveRecord::Base
   require 'csv'
 
+  belongs_to :job
+
   def self.import(file, company_id)
     CSV.foreach(file.path, headers: true) do |row|
 
@@ -25,4 +27,9 @@ end
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  job_id     :integer
+#
+# Indexes
+#
+#  fk_rails_9c80a19020  (job_id)
 #

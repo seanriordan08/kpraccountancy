@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118233622) do
+ActiveRecord::Schema.define(version: 20160119001206) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20160118233622) do
   end
 
   create_table "budgets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "job_id",     limit: 4
   end
+
+  add_index "budgets", ["job_id"], name: "fk_rails_9c80a19020", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
@@ -95,5 +98,6 @@ ActiveRecord::Schema.define(version: 20160118233622) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "budgets", "jobs"
   add_foreign_key "company_accounts", "companies"
 end

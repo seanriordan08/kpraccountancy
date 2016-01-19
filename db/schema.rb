@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119185708) do
+ActiveRecord::Schema.define(version: 20160119194814) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 20160119185708) do
   end
 
   create_table "budgets", force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "job_id",           limit: 4
-    t.integer  "estimated_amount", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "job_id",             limit: 4
+    t.integer  "estimated_amount",   limit: 4
+    t.integer  "company_account_id", limit: 4, null: false
   end
 
+  add_index "budgets", ["company_account_id"], name: "fk_rails_52dd444ed7", using: :btree
   add_index "budgets", ["job_id"], name: "fk_rails_9c80a19020", using: :btree
 
   create_table "companies", force: :cascade do |t|

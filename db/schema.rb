@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119194814) do
+ActiveRecord::Schema.define(version: 20160119195849) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 20160119194814) do
   end
 
   create_table "budgets", force: :cascade do |t|
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "job_id",             limit: 4
-    t.integer  "estimated_amount",   limit: 4
-    t.integer  "company_account_id", limit: 4, null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "job_id",                   limit: 4
+    t.integer  "estimated_amount",         limit: 4
+    t.integer  "company_account_id",       limit: 4,             null: false
+    t.integer  "estimated_regular_hours",  limit: 4, default: 0
+    t.integer  "estimated_overtime_hours", limit: 4, default: 0
   end
 
   add_index "budgets", ["company_account_id"], name: "fk_rails_52dd444ed7", using: :btree
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160119194814) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "budgets", "company_accounts"
   add_foreign_key "budgets", "jobs"
   add_foreign_key "company_accounts", "companies"
   add_foreign_key "jobs", "companies"

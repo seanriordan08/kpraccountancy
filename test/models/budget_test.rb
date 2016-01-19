@@ -10,12 +10,14 @@ end
 #
 # Table name: budgets
 #
-#  id                 :integer          not null, primary key
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  job_id             :integer
-#  estimated_amount   :integer
-#  company_account_id :integer          not null
+#  id                       :integer          not null, primary key
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  job_id                   :integer
+#  estimated_amount         :integer
+#  company_account_id       :integer          not null
+#  estimated_regular_hours  :integer          default(0)
+#  estimated_overtime_hours :integer          default(0)
 #
 # Indexes
 #

@@ -8,6 +8,8 @@ class Budget < ActiveRecord::Base
     transaction do
       CSV.foreach(file.path, headers: true, header_converters: lambda { |h| h.try(:downcase) }) do |row|
         budget_hash = row.to_hash
+        next if nothing_budgeted?(budget_hash)
+
         budget_hash[:job_id] = job_id.to_i
         budget_hash[:company_account_id] = get_company_account_id(budget_hash["number"])
         budget = where(id: budget_hash["id"])
@@ -25,6 +27,10 @@ class Budget < ActiveRecord::Base
 
   private
 
+  def self.nothing_budgeted?(budget_hash)
+    (budget_hash["estimated_amount"].to_i + budget_hash["estimated_regular_hours"].to_i + budget_hash["estimated_overtime_hours"].to_i) == 0
+  end
+
   def self.get_company_account_id(number)
     account = CompanyAccount.where(number: number).first
     if account.present?
@@ -35,11 +41,15 @@ class Budget < ActiveRecord::Base
   end
 
   def self.clean_data(budget_hash)
+    budget_hash["estimated_amount"] = remove_integer_commas(budget_hash)
+    omit_unnecessary_columns(budget_hash)
+  end
+
+  def self.remove_integer_commas(budget_hash)
     budget_hash["estimated_amount"] = budget_hash["estimated_amount"].to_s
     if budget_hash["estimated_amount"].blank? || budget_hash["estimated_amount"].include?(",") #Remove any commas from estmated_amount
       budget_hash["estimated_amount"].gsub!(/,/, "")
     end
-    omit_unnecessary_columns(budget_hash)
   end
 
   def self.omit_unnecessary_columns(budget_hash)

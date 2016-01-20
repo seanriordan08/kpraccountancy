@@ -3,8 +3,9 @@ class CompanyAccount < ActiveRecord::Base
 
   belongs_to :company
 
+
   def self.import(file, company_id)
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, headers: true, header_converters: lambda { |h| h.try(:downcase) }) do |row|
 
       company_account_hash = row.to_hash # exclude the price field
       company_account_hash[:company_id] = company_id
@@ -25,7 +26,7 @@ end
 # Table name: company_accounts
 #
 #  id           :integer          not null, primary key
-#  number       :integer          not null
+#  number       :string(255)      not null
 #  name         :string(255)      not null
 #  account_type :string(255)
 #  detail_type  :string(255)

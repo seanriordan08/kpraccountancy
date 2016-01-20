@@ -11,7 +11,7 @@ end
 # Table name: company_accounts
 #
 #  id           :integer          not null, primary key
-#  number       :integer          not null
+#  number       :string(255)      not null
 #  name         :string(255)      not null
 #  account_type :string(255)
 #  detail_type  :string(255)

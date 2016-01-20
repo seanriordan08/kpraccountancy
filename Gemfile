@@ -14,6 +14,7 @@ gem 'execjs'
 gem 'therubyracer' #, platforms: :ruby
 gem 'jquery-rails'
 gem 'acts_as_list'
+gem 'axlsx', '~> 2.0', '>= 2.0.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

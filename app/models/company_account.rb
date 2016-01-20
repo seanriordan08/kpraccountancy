@@ -3,6 +3,7 @@ class CompanyAccount < ActiveRecord::Base
 
   belongs_to :company
 
+  DATETIME_FORMAT = '%e %b %Y %I:%M:%S %p'
 
   def self.import(file, company_id)
     CSV.foreach(file.path, headers: true, header_converters: lambda { |h| h.try(:downcase) }) do |row|
@@ -18,6 +19,11 @@ class CompanyAccount < ActiveRecord::Base
       end # end if !company_account.nil?
     end # end CSV.foreach
   end # end self.import(file)
+
+  def self.get_last_uploaded_date(current_user)
+    timestamp = order(:created_at).last.created_at
+    timestamp.in_time_zone(current_user.time_zone).strftime(DATETIME_FORMAT)
+  end
 
 end
 

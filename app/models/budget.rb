@@ -4,6 +4,8 @@ class Budget < ActiveRecord::Base
   belongs_to :job
   belongs_to :company_account
 
+  DATETIME_FORMAT = '%e %b %Y %I:%M:%S %p'
+
   def self.import(file, job_id)
     transaction do
       CSV.foreach(file.path, headers: true, header_converters: lambda { |h| h.try(:downcase) }) do |row|
@@ -22,6 +24,11 @@ class Budget < ActiveRecord::Base
         end
       end
     end
+  end
+
+  def self.get_last_uploaded_date(current_user)
+    timestamp = order(:created_at).last.created_at
+    timestamp.in_time_zone(current_user.time_zone).strftime(DATETIME_FORMAT)
   end
 
 

@@ -42,6 +42,7 @@ end
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string(255)
 #  locked_at              :datetime
+#  time_zone              :string(255)      default("Mountain Time (US & Canada)")
 #
 # Indexes
 #

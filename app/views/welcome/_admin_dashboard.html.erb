@@ -6,7 +6,8 @@
         Chart of Accounts<br>Uploader
         <br><br>
         Last Uploaded:<br>
-        <%= company_accounts_last_uploaded(current_user)%>
+        <%= company_accounts_last_uploaded(current_user)%><br>
+        (<%= distance_of_time_in_words(company_accounts_last_uploaded(current_user), Time.zone.now)%> ago)
       </div>
       <div class="form">
         <%= form_tag import_company_accounts_path, multipart: true do %>
@@ -23,7 +24,8 @@
         Job Budget<br>Uploader
         <br><br>
         Last Uploaded:<br>
-        <%= budgets_last_uploaded(current_user)%>
+        <%= budgets_last_uploaded(current_user)%><br>
+        (<%= distance_of_time_in_words(budgets_last_uploaded(current_user), Time.zone.now)%> ago)
       </div>
       <div class="form">
         <%= form_tag import_budgets_path, multipart: true do %>

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160119215141) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.integer  "job_id",                   limit: 4
-    t.integer  "estimated_amount",         limit: 4
+    t.integer  "estimated_amount",         limit: 4, default: 0
     t.integer  "company_account_id",       limit: 4,             null: false
     t.integer  "estimated_regular_hours",  limit: 4, default: 0
     t.integer  "estimated_overtime_hours", limit: 4, default: 0

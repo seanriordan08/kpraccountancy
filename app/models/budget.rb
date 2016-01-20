@@ -27,8 +27,12 @@ class Budget < ActiveRecord::Base
   end
 
   def self.get_last_uploaded_date(current_user)
-    timestamp = order(:created_at).last.created_at
-    timestamp.in_time_zone(current_user.time_zone).strftime(DATETIME_FORMAT)
+    if CompanyAccount.count('created_at') == 0
+      nil
+    else
+      timestamp = order(:created_at).last.created_at
+      timestamp.in_time_zone(current_user.time_zone).strftime(DATETIME_FORMAT)
+    end
   end
 
 

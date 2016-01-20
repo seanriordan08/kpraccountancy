@@ -4,10 +4,12 @@
 		<div class="widget">
 			<div class="widget_image">
         Chart of Accounts<br>Uploader
-        <br><br>
-        Last Uploaded:<br>
-        <%= company_accounts_last_uploaded(current_user)%><br>
-        (<%= distance_of_time_in_words(company_accounts_last_uploaded(current_user), Time.zone.now)%> ago)
+        <% if company_accounts_last_uploaded(current_user).present? %>
+          <br><br>
+          Last Uploaded:<br>
+          <%= company_accounts_last_uploaded(current_user)%><br>
+          (<%= distance_of_time_in_words(company_accounts_last_uploaded(current_user), Time.zone.now)%> ago)
+        <% end %>
       </div>
       <div class="form">
         <%= form_tag import_company_accounts_path, multipart: true do %>
@@ -22,10 +24,12 @@
     <div class="widget">
       <div class="widget_image">
         Job Budget<br>Uploader
-        <br><br>
-        Last Uploaded:<br>
-        <%= budgets_last_uploaded(current_user)%><br>
-        (<%= distance_of_time_in_words(budgets_last_uploaded(current_user), Time.zone.now)%> ago)
+        <% if budgets_last_uploaded(current_user).present? %>
+          <br><br>
+          Last Uploaded:<br>
+          <%= budgets_last_uploaded(current_user)%><br>
+          (<%= distance_of_time_in_words(budgets_last_uploaded(current_user), Time.zone.now)%> ago)
+        <% end %>
       </div>
       <div class="form">
         <%= form_tag import_budgets_path, multipart: true do %>

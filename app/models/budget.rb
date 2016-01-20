@@ -41,15 +41,17 @@ class Budget < ActiveRecord::Base
   end
 
   def self.clean_data(budget_hash)
-    budget_hash["estimated_amount"] = remove_integer_commas(budget_hash)
+    budget_hash["estimated_amount"] = remove_integer_commas(budget_hash["estimated_amount"])
+    budget_hash["estimated_regular_hours"] = remove_integer_commas(budget_hash["estimated_regular_hours"])
+    budget_hash["estimated_overtime_hours"] = remove_integer_commas(budget_hash["estimated_overtime_hours"])
     omit_unnecessary_columns(budget_hash)
   end
 
-  def self.remove_integer_commas(budget_hash)
-    budget_hash["estimated_amount"] = budget_hash["estimated_amount"].to_s
-    if budget_hash["estimated_amount"].blank? || budget_hash["estimated_amount"].include?(",") #Remove any commas from estmated_amount
-      budget_hash["estimated_amount"].gsub!(/,/, "")
+  def self.remove_integer_commas(budget_hash_value)
+    if budget_hash_value.present? && budget_hash_value.include?(",")
+      budget_hash_value.gsub!(/,/, "")
     end
+    budget_hash_value.to_i
   end
 
   def self.omit_unnecessary_columns(budget_hash)

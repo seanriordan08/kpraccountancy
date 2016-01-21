@@ -12,15 +12,12 @@ class WelcomeController < ApplicationController
     company_id = params[:company_id]
     job_id = 1 #params[:job_id]
     @budgets = Budget.where(job_id: job_id)
-    package = Axlsx::Package.new
-    workbook = package.workbook
-    workbook.add_worksheet(name: "Basic work sheet") do |sheet|
-      sheet.add_row ["Estimated Amount", "Estimated Regular Hours", "Estimated Overtime Hours"]
-      @budgets.each do |column|
-        sheet.add_row [column.estimated_amount, column.estimated_regular_hours, column.estimated_overtime_hours]
-      end
-    end
-    package.serialize("Basic_Budget.xlsx")
+
+    # respond_to do |format|
+    #   format.xlsx render xlsx: "job_budget.xlsx.axlsx", template: "welcome/job_budget.xlsx.axlsx"
+    # end
+    render xlsx: "job_budget.xlsx.axlsx", template: "welcome/job_budget.xlsx.axlsx"
+
     send_file("#{Rails.root}/Basic_Budget.xlsx", filename: "Basic_Budget.xlsx", type: "application/vnd.ms-excel")
   end
 

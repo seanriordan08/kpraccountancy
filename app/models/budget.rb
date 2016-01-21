@@ -1,4 +1,6 @@
 class Budget < ActiveRecord::Base
+  acts_as_xlsx
+
   require 'csv'
 
   belongs_to :job

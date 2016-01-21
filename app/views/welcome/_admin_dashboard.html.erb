@@ -44,7 +44,9 @@
 	</div>
 
   Generate Reports
-  <%= form_tag %>
+  <%= form_tag download_xlsx_welcome_index_path do %>
+    <%= submit_tag "Generate Budget vs Actuals" %>
+  <% end %>
 </div>
 
 <script type="text/javascript">

@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :welcome
+  resources :welcome do
+    collection { post :download_xlsx }
+  end
+
   resources :news_articles
+
   resources :company_accounts do
     collection { post :import }
   end
+
   resources :budgets do
     collection { post :import }
   end

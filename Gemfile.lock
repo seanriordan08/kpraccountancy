@@ -38,6 +38,10 @@ GEM
       tzinfo (~> 1.1)
     acts_as_list (0.7.2)
       activerecord (>= 3.0)
+    acts_as_xlsx (1.0.6)
+      activerecord (>= 2.3.9)
+      axlsx (>= 1.0.13)
+      i18n (>= 0.4.1)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -46,6 +50,9 @@ GEM
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.4.1)
       rubyzip (~> 1.0.0)
+    axlsx_rails (0.4.0)
+      axlsx (>= 2.0.1)
+      rails (>= 3.1)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -183,8 +190,10 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  acts_as_xlsx
   annotate (= 2.6.10)
   axlsx (~> 2.0, >= 2.0.1)
+  axlsx_rails
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails (= 2.0.2)

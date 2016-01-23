@@ -1,0 +1,59 @@
+Axlsx::Package.new do |p|
+	p.use_shared_strings = true
+
+	p.workbook.add_worksheet(name: "Basic work sheet") do |sheet|
+		focus_header = sheet.styles.add_style(:bg_color => "87B6DF", border: {style: :thin, color: "000000", edges: [:top, :right, :left]})
+		focus_body_overline_thick = sheet.styles.add_style(:bg_color => "D5E5F4", border: {style: :thick, color: "000000", edges: [:top]})
+		focus_body_underline_thin = sheet.styles.add_style(:bg_color => "D5E5F4", border: {style: :thin, color: "000000", edges: [:bottom]})
+		focus_body = sheet.styles.add_style(:bg_color => "D5E5F4")
+		total = sheet.styles.add_style(:bg_color => "87B6DF", alignment: {horizontal: :center})
+
+		centered = sheet.styles.add_style(alignment: { :horizontal=> :center })
+		underline = sheet.styles.add_style(border: {style: :thin, color: "000000", edges: [:bottom]})
+
+		sheet.column_widths nil
+
+		sheet.merge_cells("A1:E1")
+		sheet.add_row ["#{@company.name}"], style: centered, :sz => 14, :height => 20, b: true
+
+		sheet.merge_cells("A2:E2")
+		sheet.add_row ["#{WelcomeController::DOCUMENT_TITLE}"], style: centered, :sz => 14, :height => 20, b: true
+
+		current_month = Date.today.strftime('%B')
+		current_year = Date.today.strftime('%Y')
+		next_month = Date.today.next_month.strftime('%B')
+		sheet.merge_cells("A3:E3")
+		sheet.add_row [current_month + " - " + next_month + " " + current_year], style: centered, :sz => 12
+
+		sheet.add_row [""]
+
+		sheet.add_row ["Contract Overview","","","",""], style: focus_header
+		sheet.merge_cells("A5:B5")
+		sheet.merge_cells("C5:E5")
+
+		sheet.add_row ["Original Awarded Contract","calc_number", "Revenue Billed thru Prior Period","","calc_number"], style: focus_body_overline_thick
+		sheet.add_row ["Change Orders","","Rev Billed to Date","","calc_number"], style: focus_body
+		sheet.add_row ["Total Contract Amount","calc_number","","Rev this Period","calc_number"], style: focus_body_underline_thin
+		sheet.add_row ["","","","",""], style: focus_body
+		sheet.add_row ["Cash Received to Date","calc_number","Percentage Complete per Management","","calc_percentage"], style: focus_body
+		sheet.add_row ["Percent Received to Date","calc_number","","",""], style: focus_body
+		sheet.add_row ["","","Billings in Excess of Costs","","calc_number"], style: focus_body
+		sheet.add_row ["","","Costs in Excess of Billings","","calc_number"], style: focus_body
+
+		sheet.add_row [""]
+
+		sheet.add_row ["","Total"], style: centered
+		sheet.merge_cells("B15:E15")
+
+		sheet.add_row ["Income","Actual","Budget","over Budget","% of Budget"], style: underline
+		@budgets.each do |budget|
+			sheet.add_row [budget.company_account.number + " " + budget.company_account.name,"",budget.estimated_amount], style: focus_body
+		end
+
+		sheet.column_widths 45,18,18,18,18
+	end
+
+	p.serialize(WelcomeController::DOCUMENT_BUDGET)
+
+end
+

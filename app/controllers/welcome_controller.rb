@@ -4,21 +4,23 @@ class WelcomeController < ApplicationController
   before_action :get_featured_news_articles
   after_action :allow_iframe, only: :index
 
+  DOCUMENT_TITLE = "Job_Budget_vs_Actuals"
+  DOCUMENT_BUDGET = "Job_Budget_vs_Actuals.xlsx"
+  DOCUMENT_BUDGET_PATH = "#{Rails.root}/#{DOCUMENT_BUDGET}"
+
   def index
     @companies = Company.all
   end
 
   def download_xlsx
-    company_id = params[:company_id]
-    job_id = 1 #params[:job_id]
-    @budgets = Budget.where(job_id: job_id)
+    File.delete(DOCUMENT_BUDGET_PATH) if File.exists?(DOCUMENT_BUDGET_PATH)
 
-    # respond_to do |format|
-    #   format.xlsx render xlsx: "job_budget.xlsx.axlsx", template: "welcome/job_budget.xlsx.axlsx"
-    # end
-    render xlsx: "job_budget.xlsx.axlsx", template: "welcome/job_budget.xlsx.axlsx"
+    @company = Company.find(params[:companies])
+    @job = Job.find(params[:jobs])
+    @budgets = Budget.where(job_id: @job.id)
+    render xlsx: "job_budget_vs_actuals.xlsx.axlsx", template: "welcome/job_budget_vs_actuals.xlsx.axlsx"
 
-    send_file("#{Rails.root}/Basic_Budget.xlsx", filename: "Basic_Budget.xlsx", type: "application/vnd.ms-excel")
+    send_file(DOCUMENT_BUDGET_PATH, filename: DOCUMENT_BUDGET, type: "application/vnd.ms-excel")
   end
 
 private

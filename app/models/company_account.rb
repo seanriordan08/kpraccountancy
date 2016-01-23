@@ -2,6 +2,7 @@ class CompanyAccount < ActiveRecord::Base
   require 'csv'
 
   belongs_to :company
+  has_many :budgets
 
   DATETIME_FORMAT = '%e %b %Y %I:%M:%S %p'
 

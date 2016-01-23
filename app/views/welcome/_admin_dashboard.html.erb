@@ -45,6 +45,9 @@
 
   Generate Reports
   <%= form_tag download_xlsx_welcome_index_path do %>
+    <%= select_tag "companies", options_from_collection_for_select(@companies, "id", "name"), prompt: "Please Select Company" %>
+    <%= select_tag "jobs", options_from_collection_for_select(Job.get_jobs, "id", "name"), prompt: "Please Select Job" %>
+    <br><br>
     <%= submit_tag "Generate Budget vs Actuals" %>
   <% end %>
 </div>

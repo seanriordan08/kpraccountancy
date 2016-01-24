@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
 
     @company = Company.find(params[:companies])
     @job = Job.find(params[:jobs])
-    @budgets = Budget.where(job_id: @job.id)
+    @company_accounts = CompanyAccount.joins(:budgets).where('budgets.job_id' => @job.id).order(:number)
     render xlsx: "job_budget_vs_actuals.xlsx.axlsx", template: "welcome/job_budget_vs_actuals.xlsx.axlsx"
 
     send_file(DOCUMENT_BUDGET_PATH, filename: DOCUMENT_BUDGET, type: "application/vnd.ms-excel")

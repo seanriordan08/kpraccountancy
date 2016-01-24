@@ -1,3 +1,19 @@
+def sum_all_budgets
+	tally = 0
+	@company_accounts.each do |account|
+		tally += account.budgets.first.estimated_amount
+	end
+	tally
+end
+
+def revenue_billed_prior
+	0
+end
+
+def revenue_billed_to_date
+	0
+end
+
 Axlsx::Package.new do |p|
 	p.use_shared_strings = true
 
@@ -8,8 +24,9 @@ Axlsx::Package.new do |p|
 		focus_body = sheet.styles.add_style(:bg_color => "D5E5F4")
 		total = sheet.styles.add_style(:bg_color => "87B6DF", alignment: {horizontal: :center})
 
-		centered = sheet.styles.add_style(alignment: { :horizontal=> :center })
-		underline = sheet.styles.add_style(border: {style: :thin, color: "000000", edges: [:bottom]})
+		centered = sheet.styles.add_style(alignment: {horizontal: :center})
+		underline = sheet.styles.add_style(border: {style: :thin, color: "000000", edges: [:bottom]}, alignment: {horizontal: :center})
+		focus_currency = sheet.styles.add_style(:bg_color => "D5E5F4", border: {style: :thick, color: "000000", edges: [:top]}, :num_fmt => 5)
 
 		sheet.column_widths nil
 
@@ -31,23 +48,24 @@ Axlsx::Package.new do |p|
 		sheet.merge_cells("A5:B5")
 		sheet.merge_cells("C5:E5")
 
-		sheet.add_row ["Original Awarded Contract","calc_number", "Revenue Billed thru Prior Period","","calc_number"], style: focus_body_overline_thick
-		sheet.add_row ["Change Orders","","Rev Billed to Date","","calc_number"], style: focus_body
-		sheet.add_row ["Total Contract Amount","calc_number","","Rev this Period","calc_number"], style: focus_body_underline_thin
+		sheet.add_row ["Original Awarded Contract","#{sum_all_budgets}", "Revenue Billed thru Prior Period","","#{revenue_billed_prior}"], style: [focus_body_overline_thick, focus_currency, focus_body_overline_thick, focus_body_overline_thick, focus_currency]
+		sheet.add_row ["Change Orders","","Rev Billed to Date","","#{revenue_billed_to_date}"], style: focus_body
+		sheet.add_row ["Total Contract Amount","calc_number","","Rev this Period","#{revenue_billed_prior + revenue_billed_to_date}"], style: focus_body_underline_thin
 		sheet.add_row ["","","","",""], style: focus_body
 		sheet.add_row ["Cash Received to Date","calc_number","Percentage Complete per Management","","calc_percentage"], style: focus_body
-		sheet.add_row ["Percent Received to Date","calc_number","","",""], style: focus_body
+		sheet.add_row ["Percent Received to Date","calc_percent","","",""], style: focus_body
 		sheet.add_row ["","","Billings in Excess of Costs","","calc_number"], style: focus_body
 		sheet.add_row ["","","Costs in Excess of Billings","","calc_number"], style: focus_body
 
 		sheet.add_row [""]
 
-		sheet.add_row ["","Total"], style: centered
+		sheet.add_row ["","Total"]
 		sheet.merge_cells("B15:E15")
+		sheet.col_style 1, total, :row_offset => 14
 
 		sheet.add_row ["Income","Actual","Budget","over Budget","% of Budget"], style: underline
-		@budgets.each do |budget|
-			sheet.add_row [budget.company_account.number + " " + budget.company_account.name,"",budget.estimated_amount], style: focus_body
+		@company_accounts.each do |account|
+			sheet.add_row [account.number + " " + account.name,"",account.budgets.first.estimated_amount]
 		end
 
 		sheet.column_widths 45,18,18,18,18

@@ -17,6 +17,7 @@ end
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  company_id :integer
+#  awarded    :boolean
 #
 # Indexes
 #
